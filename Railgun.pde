@@ -9,7 +9,7 @@ void setup()
   mouse = new PVector();//
   
   loadData();
-  setDistance();
+  setDistance(greenTrack);
   tableSetup();
   
   play = new Engine();

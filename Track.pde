@@ -21,15 +21,15 @@ class Track
   }//end render
 }//end class Track
 
-
-void setDistance()
+//ArrayList<Track> redTrack = new ArrayList<Track>();
+void setDistance(ArrayList<Track> railway)
 {
-  for (int i = 0;i < greenTrack.size();i++) 
+  for (int i = 0;i < railway.size();i++) 
   {
-    if(i == greenTrack.size() - 1)
+    if(i == railway.size() - 1)
     {
-      Track temp1 = greenTrack.get(i);
-      Track temp2 = greenTrack.get(0);
+      Track temp1 = railway.get(i);
+      Track temp2 = railway.get(0);
       temp1.link = dist(temp1.loc.x*grid,temp1.loc.y*grid,  temp2.loc.x*grid,temp2.loc.y*grid);
     }//end if
     else
@@ -42,10 +42,10 @@ void setDistance()
 }//end set
 
 
-void newTrack(PVector in)
+void newTrack(ArrayList<Track> railway, PVector in)
 {
   Track local = new Track(in);
-  redTrack.add(local);
+  railway.add(local);
 }//end newTrack
 /*
 void newTrack(TableRow row)
