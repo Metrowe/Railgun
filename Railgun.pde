@@ -1,3 +1,4 @@
+///Test upload aftter hardware failure
 void setup()
 {
   size(600,600);
@@ -30,13 +31,16 @@ PVector mouse;
 
 void draw()
 {
+  if(frameCount % 1 == 0)
+  {//////////////////////////////////////////////////////////
+  
   background(0);
   displayTrack();
   displayGrid();
   
   play.render();
   play.update();
-  ellipse(width/2,height/2,  20,20);
+  //ellipse(width/2,height/2,  20,20);
   /*
   mouse.set(mouseX,mouseY);
   test = checkBlock(mouse);
@@ -46,4 +50,6 @@ void draw()
         +test.y,
          width*0.5,height*0.5);
   */
+  
+  }//////////////////////////////////////////////////////////////////
 }//end draw
