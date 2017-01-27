@@ -6,11 +6,12 @@ class Engine
   float accel;
   float next;
   float previous;
+  ArrayList<Track> railway;
   
-  Engine()
+  Engine(ArrayList<Track> line)
   {
     trak = 0;
-    Track got = greenTrack.get(trak);
+    Track got = railway.get(trak);
     pos = new PVector((got.loc.x*grid)+grid/2,(got.loc.y*grid)+grid/2);
     speed = 0;
     accel = 0;

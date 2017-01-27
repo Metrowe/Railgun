@@ -12,11 +12,11 @@ void setup()
   setDistance(greenTrack);
   tableSetup();
   
-  play = new Engine();
+  play1 = new Engine(greenTrack);
   //ellipseMode(RADIUS);
 }//end setup
 
-Engine play;
+Engine play1;
 //ArrayList<Planet> planets = new ArrayList<Planet>();
 Table table;
 
@@ -38,8 +38,8 @@ void draw()
   displayTrack();
   displayGrid();
   
-  play.render();
-  play.update();
+  play1.render();
+  play1.update();
   //ellipse(width/2,height/2,  20,20);
   /*
   mouse.set(mouseX,mouseY);
