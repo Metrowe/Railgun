@@ -15,6 +15,13 @@ void keyPressed()
   {
     saveTrack();
   }//end if
+  
+  if(keyCode == DOWN)
+  {
+    play2 = new Engine(greenTrack);
+  }//end if
+  
+  
 }
 
 void keyReleased()

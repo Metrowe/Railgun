@@ -13,15 +13,19 @@ void setup()
   tableSetup();
   
   play1 = new Engine(greenTrack);
+  play2 = new Engine(greenTrack);
+  
   //ellipseMode(RADIUS);
 }//end setup
 
 Engine play1;
+Engine play2;
 //ArrayList<Planet> planets = new ArrayList<Planet>();
 Table table;
 
-ArrayList<Track> redTrack = new ArrayList<Track>();
+
 ArrayList<Track> greenTrack = new ArrayList<Track>();
+ArrayList<Track> redTrack = new ArrayList<Track>();
 
 float timeDelta = 1.0f / 60.0f;
 int grid;
@@ -40,6 +44,8 @@ void draw()
   
   play1.render();
   play1.update();
+  play2.render();
+  play2.update();
   //ellipse(width/2,height/2,  20,20);
   /*
   mouse.set(mouseX,mouseY);

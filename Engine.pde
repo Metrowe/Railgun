@@ -11,6 +11,7 @@ class Engine
   Engine(ArrayList<Track> line)
   {
     trak = 0;
+    railway = line;
     Track got = railway.get(trak);
     pos = new PVector((got.loc.x*grid)+grid/2,(got.loc.y*grid)+grid/2);
     speed = 0;
@@ -92,8 +93,8 @@ class Engine
       //println( (remain-next) + " = " + remain  + " - " + next );
       remain -= next;
       //trak++;
-      trak = (trak+1) % greenTrack.size();
-      Track got = greenTrack.get(trak);
+      trak = (trak+1) % railway.size();
+      Track got = railway.get(trak);
       //previous = next = got.link;
       next = got.link;
       previous = 0;
@@ -113,14 +114,14 @@ class Engine
       //remain += previous;
       remain = remain +previous;
       //trak++;
-      Track got = greenTrack.get(trak);
+      Track got = railway.get(trak);
       
       pos.set((got.loc.x*grid)+grid/2,(got.loc.y*grid)+grid/2);
       
       
       
       
-      trak = ((trak-1)+greenTrack.size()) % greenTrack.size();
+      trak = ((trak-1)+railway.size()) % railway.size();
       got = greenTrack.get(trak);
       //previous = next = got.link;
       previous = got.link;
@@ -149,9 +150,9 @@ class Engine
     //println("Next = " + next);
     //println("Prev = " + previous);
     
-    int trakplus = (trak+1) % greenTrack.size();
-    Track got1 = greenTrack.get(trak);
-    Track got2 = greenTrack.get(trakplus);
+    int trakplus = (trak+1) % railway.size();
+    Track got1 = railway.get(trak);
+    Track got2 = railway.get(trakplus);
     float theta = atan2(got1.loc.y - got2.loc.y,  got1.loc.x - got2.loc.x) + TWO_PI*0.75;
     PVector direction = new PVector(sin(theta), -cos(theta));
     velocity = PVector.mult(direction, remain);

@@ -34,8 +34,8 @@ void setDistance(ArrayList<Track> railway)
     }//end if
     else
     {
-      Track temp1 = greenTrack.get(i);
-      Track temp2 = greenTrack.get(i+1);
+      Track temp1 = railway.get(i);
+      Track temp2 = railway.get(i+1);
       temp1.link = dist(temp1.loc.x*grid,temp1.loc.y*grid,  temp2.loc.x*grid,temp2.loc.y*grid);
     }//end else
   }//end for
