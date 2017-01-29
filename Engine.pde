@@ -6,6 +6,7 @@ class Engine
   float accel;
   float next;
   float previous;
+  float theta;
   ArrayList<Track> railway;
   
   Engine(ArrayList<Track> line)
@@ -23,8 +24,24 @@ class Engine
   
   void render()
   {
-    fill(0,255,255);
-    ellipse(pos.x,pos.y,  10,10);
+    //fill(0,255,255);
+    noFill();
+    strokeWeight(1);
+    
+    stroke(255,0,0);
+    ellipse(pos.x,pos.y,  grid*1.1,grid*1.1);
+    
+    stroke(0,0,255);
+    
+    pushMatrix();
+    translate(pos.x, pos.y);
+    rotate(theta);
+    rect(-grid/2,-grid/2, grid,grid);
+    //rect(0,0, grid,grid);
+    
+    popMatrix();
+    
+    
   }//end update
   
   
@@ -153,7 +170,7 @@ class Engine
     int trakplus = (trak+1) % railway.size();
     Track got1 = railway.get(trak);
     Track got2 = railway.get(trakplus);
-    float theta = atan2(got1.loc.y - got2.loc.y,  got1.loc.x - got2.loc.x) + TWO_PI*0.75;
+    theta = atan2(got1.loc.y - got2.loc.y,  got1.loc.x - got2.loc.x) + TWO_PI*0.75;
     PVector direction = new PVector(sin(theta), -cos(theta));
     velocity = PVector.mult(direction, remain);
     
