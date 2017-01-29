@@ -122,7 +122,7 @@ class Engine
       
       
       trak = ((trak-1)+railway.size()) % railway.size();
-      got = greenTrack.get(trak);
+      got = railway.get(trak);
       //previous = next = got.link;
       previous = got.link;
       next = 0;

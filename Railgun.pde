@@ -13,7 +13,8 @@ void setup()
   tableSetup();
   
   play1 = new Engine(greenTrack);
-  play2 = new Engine(greenTrack);
+  
+  
   
   //ellipseMode(RADIUS);
 }//end setup
@@ -44,8 +45,13 @@ void draw()
   
   play1.render();
   play1.update();
-  play2.render();
-  play2.update();
+  
+  if(redTrack.size() > 1)
+  {
+    play2.render();
+    play2.update();
+  }//end if
+ 
   //ellipse(width/2,height/2,  20,20);
   /*
   mouse.set(mouseX,mouseY);
