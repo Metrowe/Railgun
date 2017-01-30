@@ -8,26 +8,28 @@ class Projectile
   {
     this.front = front;
     this.velocity = velocity;
+    back = new PVector(0,0);
+    back.add(front);
     //back = front;
-    //back.sub(PVector.mult(this.velocity, 3));
+    back.sub(PVector.mult(this.velocity, 5));
   }//end Engine
   
   void render()
   {
     //fill(0,255,255);
     noFill();
-    strokeWeight(5);
+    strokeWeight(2);
     
     stroke(200,0,200);
-    point(front.x, front.y);
-    //line(front.x,front.y, back.x,back.y);
+    //point(front.x, front.y);
+    line(front.x,front.y, back.x,back.y);
   }//end update
   
   
   void update()
   {
     front.add(velocity);//// source but still no clue why
-    //back.add(velocity);
+    back.add(velocity);
   }//end update
   
   

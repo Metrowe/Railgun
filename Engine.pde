@@ -67,7 +67,8 @@ class Engine
       PVector shotSpeed = new PVector();
       shotSpeed.x = sin(theta + TWO_PI/4) * 1;
       shotSpeed.y = -cos(theta + TWO_PI/4) * 1;
-      newProjectile(pos.x,pos.y, shotSpeed);
+      //newProjectile(pos.x,pos.y, shotSpeed);
+      newProjectile(pos, shotSpeed);
     }//end if
     else if (checkKey('d'))
     {
@@ -75,10 +76,10 @@ class Engine
       shotSpeed.x = sin(theta - TWO_PI/4) * 1;
       shotSpeed.y = -cos(theta - TWO_PI/4) * 1;
       
-      PVector bugCheck = new PVector(width/2,height/2);////////////////
+
       //newProjectile(bugCheck, shotSpeed);     
-      newProjectile(pos.x,pos.y, shotSpeed);
-      //newProjectile(pos, shotSpeed);     
+      //newProjectile(pos.x,pos.y, shotSpeed);
+      newProjectile(pos, shotSpeed);     
     }//end else if
     
     

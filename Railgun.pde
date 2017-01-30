@@ -41,7 +41,9 @@ void draw()
   //if(frameCount % 1 == 0)
   //{//////////////////////////////////////////////////////////
   
-  background(0);
+  //background(0);
+  background(50);
+  
   displayTrack();
   displayGrid();
   

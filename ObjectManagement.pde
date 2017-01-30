@@ -15,9 +15,10 @@ void allFire()
   }//end for
 }//end allFire
 
-void newProjectile(float fx, float fy, PVector velocity)
+void newProjectile(PVector start, PVector velocity)
 {
-  PVector front = new PVector(fx,fy);
+  PVector front = new PVector(0,0);
+  front.add(start);
   Projectile local = new Projectile(front,velocity);
   fire.add(local);
 }//end newProjectile
