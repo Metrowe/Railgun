@@ -7,6 +7,7 @@ class Projectile
   Projectile(PVector front, PVector velocity)
   {
     this.front = front;
+    this.velocity = velocity;
   }//end Engine
   
   void render()
@@ -16,27 +17,17 @@ class Projectile
     strokeWeight(1);
     
     stroke(200,0,200);
-    line(x1,y1, x2,y2);
+    line(front.x,front.y, back.x,back.y);
   }//end update
   
   
   void update()
   {
-    speed += accel * timeDelta;
-    
-    println("Speed = " + speed);
-    //PVector velocity = jump();
 
     //pos.add(PVector.mult(velocity, timeDelta));
-    pos.add(jump(speed));
-    accel = 0;
-    speed *= 0.99;
-    
-    float val = 0.01;
-    if(speed > -val && speed < val)
-    {
-      speed = 0;
-    }//end if
+    front.add(velocity);
+    back.add(velocity);
+   
   }//end update
   
   
