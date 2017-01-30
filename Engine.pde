@@ -7,6 +7,7 @@ class Engine
   float next;
   float previous;
   float theta;
+  float thetav;
   ArrayList<Track> railway;
   
   Engine(ArrayList<Track> line)
@@ -19,6 +20,7 @@ class Engine
     accel = 0;
     next = got.link;
     previous = 0;
+    thetav = theta = 0;
     //previous = next = got.link;
   }//end Engine
   
@@ -33,9 +35,13 @@ class Engine
     
     stroke(0,0,255);
     
+    //thetav = lerp(theta, thetav, 2);
+    thetav = theta;
+    println(thetav);
+    println(theta);
     pushMatrix();
     translate(pos.x, pos.y);
-    rotate(theta);
+    rotate(thetav);
     rect(-grid/2,-grid/2, grid,grid);
     //rect(0,0, grid,grid);
     

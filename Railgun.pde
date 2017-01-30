@@ -28,6 +28,8 @@ Table table;
 ArrayList<Track> greenTrack = new ArrayList<Track>();
 ArrayList<Track> redTrack = new ArrayList<Track>();
 
+ArrayList<Projectile> fire = new ArrayList<Projectile>();
+
 float timeDelta = 1.0f / 60.0f;
 int grid;
 float xg,yg;
