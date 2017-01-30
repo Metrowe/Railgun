@@ -45,6 +45,9 @@ void draw()
   displayTrack();
   displayGrid();
   
+  allFire();
+  
+  println("FireSize = " + fire.size());
   //play1.render();
   //play1.update();
   

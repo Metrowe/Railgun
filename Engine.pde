@@ -56,11 +56,30 @@ class Engine
     if (checkKey('w'))
     {
       accel = 7;      
-    }
-    if (checkKey('s'))
+    }//end if
+    else if (checkKey('s'))
     {
       accel = -7;      
-    }
+    }//end else if
+    
+    if (checkKey('a'))
+    {
+      PVector shotSpeed = new PVector();
+      shotSpeed.x = sin(theta + TWO_PI/4) * 1;
+      shotSpeed.y = -cos(theta + TWO_PI/4) * 1;
+      newProjectile(pos, shotSpeed);
+    }//end if
+    else if (checkKey('d'))
+    {
+      PVector shotSpeed = new PVector();
+      shotSpeed.x = sin(theta - TWO_PI/4) * 1;
+      shotSpeed.y = -cos(theta - TWO_PI/4) * 1;
+      newProjectile(pos, shotSpeed);     
+    }//end else if
+    
+    
+    
+    
     speed += accel * timeDelta;
     
     println("Speed = " + speed);
@@ -105,7 +124,7 @@ class Engine
     //println("speed = " + speed);
     //println("remai = " + remain);
     
-    PVector velocity = new PVector();
+    PVector vel = new PVector();
     
     while(remain > next)
     //while(accel == 2345678)
@@ -178,14 +197,14 @@ class Engine
     Track got2 = railway.get(trakplus);
     theta = atan2(got1.loc.y - got2.loc.y,  got1.loc.x - got2.loc.x) + TWO_PI*0.75;
     PVector direction = new PVector(sin(theta), -cos(theta));
-    velocity = PVector.mult(direction, remain);
+    vel = PVector.mult(direction, remain);
     
     //float theta = atan2(pos.y - ((got.loc.y*grid)+grid/2),   pos.x - ((got.loc.x*grid)+grid/2));// + TWO_PI*0.75;
     //float theta = atan2(pos.y - got.loc.y,   pos.x - got.loc.x) + TWO_PI*0.25;
     //println("Theta = " + degrees(theta));
     //float theta = atan2(got.loc.y - pos.y,   got.loc.x - pos.x)-PI/2;
     
-    return velocity;
+    return vel;
   }//end jump
 }//end class Engine
 /*
