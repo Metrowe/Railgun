@@ -36,6 +36,8 @@ float xg,yg;
 PVector test;
 PVector mouse;
 
+int testHit;
+
 void draw()
 {
   //if(frameCount % 1 == 0)
@@ -50,7 +52,7 @@ void draw()
   allFire();
   
   println("FireSize = " + fire.size());
-  //play1.render();
+  play1.render();
   //play1.update();
   
   if(redTrack.size() > 1)
@@ -59,6 +61,13 @@ void draw()
     play2.update();
   }//end if
  
+ 
+  if(testHit > 0)///////////////////
+  {
+    fill(255);
+    text("HIT",width*0.5,height*0.1);
+    testHit--;
+  }//end if///////////////////////
   //ellipse(width/2,height/2,  20,20);
   /*
   mouse.set(mouseX,mouseY);

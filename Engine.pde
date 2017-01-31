@@ -2,6 +2,9 @@ class Engine
 {
   int trak;
   PVector pos;
+  
+  float size;
+  
   float speed;
   float accel;
   float next;
