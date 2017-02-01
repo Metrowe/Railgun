@@ -142,11 +142,12 @@ class Engine
     }//end if
     else if(previous < 20)
     {
-      Track got1 = railway.get(trak);
-      Track got2 = railway.get((trak+1) % railway.size());
+      Track got1 = railway.get(((trak-1)+railway.size()) % railway.size());
+      Track got2 = railway.get(trak);
       //(trak+1) % railway.size()
-      thetav = map(next,0,20, got1.theta, got2.theta);
+      thetav = map(previous,0,20, got1.theta, got2.theta);
       //thetav = map(next,20,0, theta, thetav);
+      //((trak-1)+railway.size()) % railway.size()
     }//end if
     else
     {
