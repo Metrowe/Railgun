@@ -137,7 +137,7 @@ class Engine
       Track got1 = railway.get(trak);
       Track got2 = railway.get((trak+1) % railway.size());
       //(trak+1) % railway.size()
-      thetav = map(next,20,0, got1.theta, got2.theta);
+      thetav = map(next,20,0, got1.theta, (got1.theta+got2.theta)/2 );
       //thetav = map(next,20,0, theta, thetav);
     }//end if
     else if(previous < 20)
@@ -145,7 +145,7 @@ class Engine
       Track got1 = railway.get(((trak-1)+railway.size()) % railway.size());
       Track got2 = railway.get(trak);
       //(trak+1) % railway.size()
-      thetav = map(previous,0,20, got1.theta, got2.theta);
+      thetav = map(previous,0,20, (got1.theta+got2.theta)/2, got2.theta);
       //thetav = map(next,20,0, theta, thetav);
       //((trak-1)+railway.size()) % railway.size()
     }//end if
