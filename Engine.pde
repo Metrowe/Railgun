@@ -7,8 +7,10 @@ class Engine
   
   float speed;
   float accel;
+  
   float next;
   float previous;
+  
   float theta;
   float thetav;
   ArrayList<Track> railway;
@@ -73,11 +75,11 @@ class Engine
   {
     if (checkKey('w'))
     {
-      accel = 7;      
+      accel = 2;      
     }//end if
     else if (checkKey('s'))
     {
-      accel = -7;      
+      accel = -2;      
     }//end else if
     
     /*
@@ -132,20 +134,20 @@ class Engine
     //pos.add(PVector.mult(velocity, timeDelta));
     pos.add(jump(speed));
     
-    if(next < 20)
+    if(next < grid/2)
     {
       Track got1 = railway.get(trak);
       Track got2 = railway.get((trak+1) % railway.size());
       //(trak+1) % railway.size()
-      thetav = map(next,20,0, got1.theta, (got1.theta+got2.theta)/2 );
+      thetav = map(next,grid/2,0, got1.theta, (got1.theta+got2.theta)/2 );
       //thetav = map(next,20,0, theta, thetav);
     }//end if
-    else if(previous < 20)
+    else if(previous < grid/2)
     {
       Track got1 = railway.get(((trak-1)+railway.size()) % railway.size());
       Track got2 = railway.get(trak);
       //(trak+1) % railway.size()
-      thetav = map(previous,0,20, (got1.theta+got2.theta)/2, got2.theta);
+      thetav = map(previous,0,grid/2, (got1.theta+got2.theta)/2, got2.theta);
       //thetav = map(next,20,0, theta, thetav);
       //((trak-1)+railway.size()) % railway.size()
     }//end if

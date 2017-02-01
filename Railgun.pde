@@ -8,13 +8,15 @@ void setup()
   test = new PVector();//
   mouse = new PVector();//
   
+  gameMode = 0;
+  
   loadData();
   setDistance(greenTrack);
   tableSetup();
   
   play1 = new Engine(greenTrack);
   
-  
+  scale = (width+height)/2;
   
   //ellipseMode(RADIUS);
 }//end setup
@@ -38,36 +40,56 @@ PVector mouse;
 
 int testHit;
 
+int gameMode;
+float scale;
+
+
 void draw()
 {
   //if(frameCount % 1 == 0)
   //{//////////////////////////////////////////////////////////
   
   //background(0);
-  background(50);
   
-  displayTrack();
-  displayGrid();
-  
-  allFire();
-  
-  //println("FireSize = " + fire.size());
-  play1.render();
-  //play1.update();
-  
-  if(redTrack.size() > 1)
+  switch(gameMode)
   {
-    play2.render();
-    play2.update();
-  }//end if
- 
- 
-  if(testHit > 0)///////////////////
-  {
-    fill(255);
-    text("HIT",width*0.5,height*0.1);
-    testHit--;
-  }//end if///////////////////////
+    case 0:
+    {
+      background(0);
+    }//end case 0
+    
+    case 1:
+    {
+      background(50);
+      
+      displayTrack();
+      displayGrid();
+      
+      allFire();
+      
+      //println("FireSize = " + fire.size());
+      play1.render();
+      //play1.update();
+      
+      if(redTrack.size() > 1)
+      {
+        play2.render();
+        play2.update();
+      }//end if
+     
+     
+      if(testHit > 0)///////////////////
+      {
+        fill(255);
+        text("HIT",width*0.5,height*0.1);
+        testHit--;
+      }//end if///////////////////////
+      
+      break;
+    }//end case 1
+  
+  
+  }//end switch
   //ellipse(width/2,height/2,  20,20);
   /*
   mouse.set(mouseX,mouseY);
