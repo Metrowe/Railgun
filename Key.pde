@@ -18,7 +18,8 @@ void keyPressed()
   
   if(keyCode == DOWN)
   {
-    play2 = new Engine(greenTrack);
+    //play2 = new Engine(greenTrack);
+    play2 = new Engine(redTrack);
   }//end if
   
   

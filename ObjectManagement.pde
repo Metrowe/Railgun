@@ -11,7 +11,11 @@ void allFire()
     {
       tempProj.update();
       tempProj.render();
-      tempProj.hit(play1);
+      if(tempProj.hit(play1))
+      {
+        fire.remove(i);
+      }//end if
+      
     }//end else
   }//end for
 }//end allFire

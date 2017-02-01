@@ -38,18 +38,33 @@ class Engine
     
     stroke(0,0,255);
     
-    //thetav = lerp(theta, thetav, 2);
-    thetav = theta;
-    println(thetav);
-    println(theta);
+    //thetav = lerp(thetav, theta, 10);
+    
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(thetav);
     rect(-grid/2,-grid/2, grid,grid);
     //rect(0,0, grid,grid);
     
+    
     popMatrix();
     
+    
+    //////////////////////
+    pushMatrix();
+    
+    translate(300,300);
+    rotate(thetav);
+    
+    noStroke();
+    fill(0,255,0);
+    rect(0,0,30,10);
+    popMatrix();
+    ////////////////////
+    
+    
+    Track got = railway.get(trak);
+    println("Theta = " + (degrees(got.theta)%360));
     
   }//end update
   
@@ -65,19 +80,41 @@ class Engine
       accel = -7;      
     }//end else if
     
+    /*
     if (checkKey('a'))
     {
       PVector shotSpeed = new PVector();
-      shotSpeed.x = sin(theta + TWO_PI/4) * 1;
-      shotSpeed.y = -cos(theta + TWO_PI/4) * 1;
+      shotSpeed.x = sin(theta - TWO_PI/4) * 1;
+      shotSpeed.y = -cos(theta - TWO_PI/4) * 1;
       //newProjectile(pos.x,pos.y, shotSpeed);
       newProjectile(pos, shotSpeed);
     }//end if
     else if (checkKey('d'))
     {
       PVector shotSpeed = new PVector();
-      shotSpeed.x = sin(theta - TWO_PI/4) * 1;
-      shotSpeed.y = -cos(theta - TWO_PI/4) * 1;
+      shotSpeed.x = sin(theta + TWO_PI/4) * 5;
+      shotSpeed.y = -cos(theta + TWO_PI/4) * 5;
+      
+
+      //newProjectile(bugCheck, shotSpeed);     
+      //newProjectile(pos.x,pos.y, shotSpeed);
+      newProjectile(pos, shotSpeed);     
+    }//end else if
+    */
+    
+    if (checkKey('a'))
+    {
+      PVector shotSpeed = new PVector();
+      shotSpeed.x = sin(thetav - TWO_PI/4) * 1;
+      shotSpeed.y = -cos(thetav - TWO_PI/4) * 1;
+      //newProjectile(pos.x,pos.y, shotSpeed);
+      newProjectile(pos, shotSpeed);
+    }//end if
+    else if (checkKey('d'))
+    {
+      PVector shotSpeed = new PVector();
+      shotSpeed.x = sin(thetav + TWO_PI/4) * 5;
+      shotSpeed.y = -cos(thetav + TWO_PI/4) * 5;
       
 
       //newProjectile(bugCheck, shotSpeed);     
@@ -87,14 +124,45 @@ class Engine
     
     
     
-    
     speed += accel * timeDelta;
     
-    println("Speed = " + speed);
+    //println("Speed = " + speed);
     //PVector velocity = jump();
 
     //pos.add(PVector.mult(velocity, timeDelta));
     pos.add(jump(speed));
+    
+    if(next < 20)
+    {
+      Track got1 = railway.get(trak);
+      Track got2 = railway.get((trak+1) % railway.size());
+      //(trak+1) % railway.size()
+      thetav = map(next,20,0, got1.theta, got2.theta);
+      //thetav = map(next,20,0, theta, thetav);
+    }//end if
+    else if(previous < 20)
+    {
+      Track got1 = railway.get(trak);
+      Track got2 = railway.get((trak+1) % railway.size());
+      //(trak+1) % railway.size()
+      thetav = map(next,0,20, got1.theta, got2.theta);
+      //thetav = map(next,20,0, theta, thetav);
+    }//end if
+    else
+    {
+      Track got = railway.get(trak);
+      thetav = got.theta;
+    }//end else
+    
+    //thetav = lerp(thetav,theta, 10);
+    //thetav = theta;
+    //println(thetav);
+    //println(theta);
+    
+    
+    
+    
+    
     accel = 0;
     speed *= 0.99;
     

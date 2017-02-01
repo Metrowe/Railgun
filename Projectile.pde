@@ -32,12 +32,17 @@ class Projectile
     back.add(velocity);
   }//end update
   
-  void hit(Engine player)
+  boolean hit(Engine player)
   {
-     if(front.dist(player.pos) < grid * 0.55)
+     if(front.dist(player.pos) <= grid * 0.55)
      {
        testHit = 50;
+       return true;
      }
+     else
+     {
+       return false;
+     }//end else
   }////end hit
   
   

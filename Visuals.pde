@@ -30,6 +30,21 @@ void displayTrack()
   }//end for
 }//end smallRock
 
+float reach(float in, float out)
+{
+  if( in < out - radians(1) || in > out + radians(1) )
+  {
+    if(in > out)
+    {
+      
+    }//end if
+  }//end if
+  
+  
+  
+  return out;
+}//end reach
+
 PVector checkBlock(PVector in)
 {
   //PVector out = new PVector(round((in.x/grid)),round(in.y/grid));

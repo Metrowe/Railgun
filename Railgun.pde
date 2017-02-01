@@ -51,7 +51,7 @@ void draw()
   
   allFire();
   
-  println("FireSize = " + fire.size());
+  //println("FireSize = " + fire.size());
   play1.render();
   //play1.update();
   
