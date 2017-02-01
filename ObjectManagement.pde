@@ -1,3 +1,11 @@
+void setupVersus()
+{
+  
+  loadData();
+  setDistance(greenTrack);
+  play1 = new Engine(greenTrack);
+}//end setVersus
+
 void allFire()
 {
   for (int i = fire.size() - 1; i > -1; i--) 

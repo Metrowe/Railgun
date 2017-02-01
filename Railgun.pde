@@ -5,18 +5,20 @@ void setup()
   grid = 20;
   xg = width/grid;
   yg = height/grid;
+  scale = (width+height)/2;
+  gameMode = 0;
+  
   test = new PVector();//
   mouse = new PVector();//
   
-  gameMode = 0;
+  VB = new VersusButton( "Versus",new PVector(width*0.5,height*0.5),new PVector(width*0.1,height*0.1),color(255,0,0) );
   
-  loadData();
-  setDistance(greenTrack);
+  
   tableSetup();
   
-  play1 = new Engine(greenTrack);
   
-  scale = (width+height)/2;
+  
+  
   
   //ellipseMode(RADIUS);
 }//end setup
@@ -43,6 +45,8 @@ int testHit;
 int gameMode;
 float scale;
 
+VersusButton VB;
+
 
 void draw()
 {
@@ -56,6 +60,9 @@ void draw()
     case 0:
     {
       background(0);
+      VB.render();
+
+      break;
     }//end case 0
     
     case 1:

@@ -11,3 +11,26 @@ void mouseClicked()
     play2 = new Engine(redTrack);
   }//end if
 }//end mouseClicked
+
+void mousePressed()
+{ 
+  switch(gameMode)
+  {
+    case 0:
+    {
+      VB.ifClicked();
+      //MB.ifClicked();
+      break;
+    }//end case 0
+    case 1:
+    {
+      
+      break;
+    }//end case 1
+    case 2:
+    {
+      
+      break;
+    }//end case 2
+  }//end switch
+}//end mouseclicked
