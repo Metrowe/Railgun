@@ -10,6 +10,7 @@ void displayGrid()
   {
     line(0,i*grid,  width,i*grid);
   }//end for
+  strokeWeight(2);
 }//end displayGrid
 
 void displayTrack()

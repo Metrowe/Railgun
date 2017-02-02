@@ -11,6 +11,7 @@ void keyPressed()
 { 
   keys[keyCode] = true;
   
+  println("Keycode = " + keyCode);
   switch(gameMode)
   {
     case 0:
@@ -21,24 +22,28 @@ void keyPressed()
     
     case 1:
     {
-      if(keyCode == BACKSPACE)
+      //if(keyCode == BACKSPACE)
+      if(keyCode == 'q' || keyCode == 'Q')
       {
         //play2 = new Engine(greenTrack);
         gameMode = 0;
       }//end if
       
+      /*
       if(keyCode == DOWN)
       {
         //play2 = new Engine(greenTrack);
         play2 = new Engine(redTrack);
       }//end if
+      */
       
       break;
     }//end case 1
     
     case 2:
     {
-      if(keyCode == BACKSPACE)
+      //if(keyCode == BACKSPACE)
+      if(keyCode == 'q' || keyCode == 'Q')
       {
         //play2 = new Engine(greenTrack);
         gameMode = 0;
