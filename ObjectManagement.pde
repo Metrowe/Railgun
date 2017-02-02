@@ -3,7 +3,9 @@ void setupVersus()
   
   loadData();
   setDistance(greenTrack);
+  setDistance(redTrack);
   play1 = new Engine(greenTrack);
+  play2 = new Engine(redTrack);
 }//end setVersus
 
 void setupMap()

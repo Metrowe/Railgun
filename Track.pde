@@ -10,11 +10,12 @@ class Track
     loc = new PVector(in.x, in.y);
   }//end Star
   
+  /*
   Track(TableRow row)
   {
     loc = new PVector(row.getInt("1x"),row.getInt("1y"));
   }//end Star 
-  
+  */
   void render(color c)
   {
     noStroke();

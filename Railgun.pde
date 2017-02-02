@@ -51,10 +51,24 @@ MapButton MB;
 
 void draw()
 {
+  //println("Red Size = " + redTrack.size() );
+  //println("Gre Size = " + greenTrack.size() );
   //if(frameCount % 1 == 0)
   //{//////////////////////////////////////////////////////////
   
   //background(0);
+  /*
+  PVector tnull = null;
+  
+  if(tnull != null)
+  {
+    println("TRUE null");
+  }
+  else
+  {
+    println("FALSE null");
+  }
+  */
   
   switch(gameMode)
   {
@@ -81,12 +95,16 @@ void draw()
       play1.render();
       //play1.update();
       
+      play2.render();
+      play2.update();
+      
+      /*
       if(redTrack.size() > 1)
       {
         play2.render();
         play2.update();
       }//end if
-     
+     */
      
       if(testHit > 0)///////////////////
       {

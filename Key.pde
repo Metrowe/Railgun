@@ -11,7 +11,7 @@ void keyPressed()
 { 
   keys[keyCode] = true;
   
-  println("Keycode = " + keyCode);
+  //println("Keycode = " + keyCode);
   switch(gameMode)
   {
     case 0:
