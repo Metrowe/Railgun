@@ -45,6 +45,7 @@ int testHit;
 int gameMode;
 float scale;
 
+boolean greenVred;
 VersusButton VB;
 MapButton MB;
 
@@ -122,7 +123,7 @@ void draw()
       
       displayTrack();
       displayGrid();
-
+      displayHighlight();
       break;
     }//end case 2
   

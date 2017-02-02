@@ -49,6 +49,12 @@ void keyPressed()
         gameMode = 0;
       }//end if
       
+      if(keyCode == 'r' || keyCode == 'R')
+      {
+        //play2 = new Engine(greenTrack);
+        greenVred = !greenVred;
+      }//end if
+      
       if(keyCode == UP)
       {
         saveTrack();

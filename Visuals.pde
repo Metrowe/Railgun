@@ -31,6 +31,22 @@ void displayTrack()
   }//end for
 }//end smallRock
 
+void displayHighlight()
+{
+  if(greenVred)
+  {
+    stroke(0,255,0);
+    fill(0,255,0);
+  }//end if
+  else
+  {
+    stroke(255,0,0);
+    fill(255,0,0);
+  }//end else
+  
+  ellipse(mouseX,mouseY, width * 0.01,height * 0.01);
+}//end
+
 void displayTitle()
 {
   textAlign(CENTER,CENTER);

@@ -12,6 +12,7 @@ void setupMap()
 {
   
   loadData();
+  greenVred = true;
 }//end setVersus
 
 void allFire()
