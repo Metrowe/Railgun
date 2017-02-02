@@ -63,10 +63,28 @@ class VersusButton extends Button
   
   void ifClicked()
   {
-    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
+    if(mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y && mouseY < pos.y+size.y)
     {
       gameMode = 1;
       setupVersus();
     }
   }//end ifClicked
-}//end class FreeModeButton
+}//end class VersusButton
+
+class MapButton extends Button 
+{
+  
+  MapButton(String label, PVector pos, PVector size,color c)
+  {
+    super(label,pos,size,c);
+  }//end FreeModeButton
+  
+  void ifClicked()
+  {
+    if(mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y && mouseY < pos.y+size.y)
+    {
+      gameMode = 2;
+      setupMap();
+    }
+  }//end ifClicked
+}//end class VersusButton

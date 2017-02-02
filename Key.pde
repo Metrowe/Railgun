@@ -11,19 +11,53 @@ void keyPressed()
 { 
   keys[keyCode] = true;
   
-  if(keyCode == UP)
+  switch(gameMode)
   {
-    saveTrack();
-  }//end if
-  
-  if(keyCode == DOWN)
-  {
-    //play2 = new Engine(greenTrack);
-    play2 = new Engine(redTrack);
-  }//end if
-  
-  
-}
+    case 0:
+    {
+      
+      break;
+    }//end case 0
+    
+    case 1:
+    {
+      if(keyCode == BACKSPACE)
+      {
+        //play2 = new Engine(greenTrack);
+        gameMode = 0;
+      }//end if
+      
+      if(keyCode == DOWN)
+      {
+        //play2 = new Engine(greenTrack);
+        play2 = new Engine(redTrack);
+      }//end if
+      
+      break;
+    }//end case 1
+    
+    case 2:
+    {
+      if(keyCode == BACKSPACE)
+      {
+        //play2 = new Engine(greenTrack);
+        gameMode = 0;
+      }//end if
+      
+      if(keyCode == UP)
+      {
+        saveTrack();
+      }//end if
+      
+      if(keyCode == LEFT)
+      {
+        redTrack.clear();
+      }//end if
+      
+      break;
+    }//end case 2
+  }//end switch
+}//end keyPressed
 
 void keyReleased()
 {

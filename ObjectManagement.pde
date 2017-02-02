@@ -6,6 +6,12 @@ void setupVersus()
   play1 = new Engine(greenTrack);
 }//end setVersus
 
+void setupMap()
+{
+  
+  loadData();
+}//end setVersus
+
 void allFire()
 {
   for (int i = fire.size() - 1; i > -1; i--) 

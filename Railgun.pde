@@ -12,7 +12,7 @@ void setup()
   mouse = new PVector();//
   
   VB = new VersusButton( "Versus",new PVector(width*0.5,height*0.4),new PVector(width*0.2,height*0.05),color(255,0,0) );
-  
+  MB = new MapButton( "Map Maker",new PVector(width*0.5,height*0.55),new PVector(width*0.2,height*0.05),color(0,255,0) );
   
   tableSetup();
   
@@ -46,6 +46,7 @@ int gameMode;
 float scale;
 
 VersusButton VB;
+MapButton MB;
 
 
 void draw()
@@ -62,6 +63,7 @@ void draw()
       background(0);
       displayTitle();
       VB.render();
+      MB.render();
 
       break;
     }//end case 0
@@ -95,6 +97,16 @@ void draw()
       
       break;
     }//end case 1
+    
+    case 2:
+    {
+      background(50);
+      
+      displayTrack();
+      displayGrid();
+
+      break;
+    }//end case 2
   
   
   }//end switch

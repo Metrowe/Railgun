@@ -1,8 +1,9 @@
 void mouseClicked()
 {
-  mouse.set(mouseX,mouseY);
-  PVector block = new PVector();
-  block = checkBlock(mouse);
+  PVector block = checkBlock(new PVector(mouseX,mouseY));
+  
+  //PVector block = new PVector();
+  //block = checkBlock(new PVector(mouseX,mouseY));
   newTrack(redTrack, block);
   //play2 = new Engine(redTrack);
   setDistance(redTrack);
@@ -14,12 +15,13 @@ void mouseClicked()
 
 void mousePressed()
 { 
+  
   switch(gameMode)
   {
     case 0:
     {
       VB.ifClicked();
-      //MB.ifClicked();
+      MB.ifClicked();
       break;
     }//end case 0
     case 1:
@@ -33,4 +35,5 @@ void mousePressed()
       break;
     }//end case 2
   }//end switch
+  
 }//end mouseclicked
