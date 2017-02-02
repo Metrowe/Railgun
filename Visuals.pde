@@ -30,20 +30,14 @@ void displayTrack()
   }//end for
 }//end smallRock
 
-float reach(float in, float out)
+void displayTitle()
 {
-  if( in < out - radians(1) || in > out + radians(1) )
-  {
-    if(in > out)
-    {
-      
-    }//end if
-  }//end if
-  
-  
-  
-  return out;
-}//end reach
+  textAlign(CENTER,CENTER);
+  textSize(scale * 0.1);
+  fill(255);
+  text("Railgun",width*0.5,height*0.3);
+  textSize(scale * 0.018);
+}//end displayTitle
 
 PVector checkBlock(PVector in)
 {

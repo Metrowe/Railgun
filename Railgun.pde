@@ -11,7 +11,7 @@ void setup()
   test = new PVector();//
   mouse = new PVector();//
   
-  VB = new VersusButton( "Versus",new PVector(width*0.5,height*0.5),new PVector(width*0.1,height*0.1),color(255,0,0) );
+  VB = new VersusButton( "Versus",new PVector(width*0.5,height*0.4),new PVector(width*0.2,height*0.05),color(255,0,0) );
   
   
   tableSetup();
@@ -60,6 +60,7 @@ void draw()
     case 0:
     {
       background(0);
+      displayTitle();
       VB.render();
 
       break;

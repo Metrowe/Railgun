@@ -25,7 +25,7 @@ class Button
   
   void hover()
   {
-    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
+    if(mouseX > pos.x-size.x*0.5 && mouseX < pos.x+size.x*0.5 && mouseY > pos.y && mouseY < pos.y+size.y)
     {
       fill(c);
       t = color(0);
@@ -41,7 +41,7 @@ class Button
   {
     stroke(c);
     hover();
-    rect(pos.x,pos.y,  size.x,size.y);
+    rect(pos.x-size.x*0.5,pos.y,  size.x,size.y);
     textra();
   }//end render
   
@@ -49,7 +49,7 @@ class Button
   {
     fill(t);
     textAlign(CENTER,CENTER);
-    text(label,pos.x+size.x*0.5,pos.y+size.y*0.5);
+    text(label,  pos.x, pos.y+size.y*0.5);
   }//end extra
 }//end class Button
 
