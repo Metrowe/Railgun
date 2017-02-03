@@ -39,18 +39,28 @@ void mousePressed()
     }//end case 1
     case 2:
     {
+      if(mouseY < height - grid*2)
+      {
+        newTrack(redTrack, checkBlock(new PVector(mouseX,mouseY))  );
+        setDistance(redTrack);
+      }//end if
+      else
+      {
+        g2rB.ifClicked();
+      }//end else
       //PVector block = checkBlock(new PVector(mouseX,mouseY));
-  
+        
     //PVector block = new PVector();
     //block = checkBlock(new PVector(mouseX,mouseY));
-    newTrack(redTrack, checkBlock(new PVector(mouseX,mouseY))  );
+    
     //play2 = new Engine(redTrack);
-    setDistance(redTrack);
+    
+    /*
     if(redTrack.size() == 1)
     {
       play2 = new Engine(redTrack);
     }//end if
-      
+      */
       
       break;
     }//end case 2

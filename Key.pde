@@ -52,7 +52,7 @@ void keyPressed()
       if(keyCode == 'r' || keyCode == 'R')
       {
         //play2 = new Engine(greenTrack);
-        greenVred = !greenVred;
+        g2r = !g2r;
       }//end if
       
       if(keyCode == UP)

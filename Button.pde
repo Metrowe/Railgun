@@ -88,3 +88,52 @@ class MapButton extends Button
     }
   }//end ifClicked
 }//end class VersusButton
+
+class G2RButton extends Button 
+{
+  
+  G2RButton(String label, PVector pos, PVector size,color c)
+  {
+    super(label,pos,size,c);
+  }//end FreeModeButton
+  
+  void render()
+  {
+    stroke(c);
+    fill(c);
+    rect(pos.x - size.x*0.5,pos.y,  size.x,size.y);
+    
+    stroke(0,255,0);
+    if(g2r)
+    {
+      fill(0,255,0);
+    }//end if
+    else
+    {
+      fill(c);
+    }//end else
+    ellipse(pos.x - size.x*0.25,pos.y + size.y*0.5,  size.y,size.y);
+    
+    stroke(255,0,0);
+    if(!g2r)
+    {
+      fill(255,0,0);
+    }//end if
+    else
+    {
+      fill(c);
+    }//end else
+    ellipse(pos.x + size.x*0.25,pos.y + size.y*0.5,  size.y,size.y);
+    
+    
+  }//end render
+  
+  void ifClicked()
+  {
+    if(mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y && mouseY < pos.y+size.y)
+    {
+      gameMode = 2;
+      setupMap();
+    }
+  }//end ifClicked
+}//end class VersusButton

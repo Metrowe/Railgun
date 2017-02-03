@@ -31,9 +31,10 @@ void displayTrack()
   }//end for
 }//end smallRock
 
+/*
 void displayHighlight()
 {
-  if(greenVred)
+  if(g2r)
   {
     stroke(0,255,0);
     fill(0,255,0);
@@ -46,6 +47,7 @@ void displayHighlight()
   
   ellipse(mouseX,mouseY, width * 0.01,height * 0.01);
 }//end
+*/
 
 void displayTitle()
 {

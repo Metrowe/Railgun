@@ -4,15 +4,22 @@ void setupVersus()
   loadData();
   setDistance(greenTrack);
   setDistance(redTrack);
-  play1 = new Engine(greenTrack);
-  play2 = new Engine(redTrack);
+  if(greenTrack.size() > 1)
+  {
+    play1 = new Engine(greenTrack);
+  }
+  
+  if(redTrack.size() > 1)
+  {
+    play2 = new Engine(redTrack);
+  }
 }//end setVersus
 
 void setupMap()
 {
   
   loadData();
-  greenVred = true;
+  g2r = true;
 }//end setVersus
 
 void allFire()

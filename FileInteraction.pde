@@ -3,6 +3,9 @@ void loadData()
   //Table t = loadTable("data/default.csv", "header");
   Table t = loadTable("data/new.csv", "header");
   
+  greenTrack.clear();
+  redTrack.clear();
+  
   for(int i = 0 ; i < t.getRowCount(); i ++)
   {
     TableRow row = t.getRow(i);
