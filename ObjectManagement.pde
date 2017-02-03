@@ -20,6 +20,7 @@ void setupMap()
   
   loadData();
   g2r = true;
+  saveConfirm = 0;
 }//end setVersus
 
 void allFire()

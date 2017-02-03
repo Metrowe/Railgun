@@ -31,6 +31,18 @@ void displayTrack()
   }//end for
 }//end smallRock
 
+void displayConfirm()
+{
+  textAlign(LEFT,TOP);
+  textSize(scale * 0.025);
+  fill(255);
+  saveConfirm--;
+  
+  if(saveConfirm > 0)
+  {
+    text("Save successful",0,0);
+  }//end if
+}//end displayConfirm
 /*
 void displayHighlight()
 {
@@ -55,7 +67,6 @@ void displayTitle()
   textSize(scale * 0.1);
   fill(255);
   text("Railgun",width*0.5,height*0.3);
-  textSize(scale * 0.018);
 }//end displayTitle
 
 PVector checkBlock(PVector in)

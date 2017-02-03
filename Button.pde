@@ -49,6 +49,7 @@ class Button
   {
     fill(t);
     textAlign(CENTER,CENTER);
+    textSize(scale * 0.025);
     text(label,  pos.x, pos.y+size.y*0.5);
   }//end extra
 }//end class Button
@@ -102,6 +103,7 @@ class SaveButton extends Button
     if(mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y && mouseY < pos.y+size.y)
     {
       saveTrack();
+      saveConfirm = 200;
     }
   }//end ifClicked
 }//end class VersusButton

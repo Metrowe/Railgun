@@ -47,6 +47,8 @@ int testHit;
 int gameMode;
 float scale;
 
+int saveConfirm;
+
 boolean g2r;
 VersusButton VB;
 MapButton MB;
@@ -126,8 +128,11 @@ void draw()
       
       displayTrack();
       displayGrid();
+      displayConfirm();
+      
       g2rB.render();
       SB.render();
+      
       //displayHighlight();
       break;
     }//end case 2
