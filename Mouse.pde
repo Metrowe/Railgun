@@ -41,8 +41,17 @@ void mousePressed()
     {
       if(mouseY < height - grid*2)
       {
-        newTrack(redTrack, checkBlock(new PVector(mouseX,mouseY))  );
-        setDistance(redTrack);
+        if(g2r)
+        {
+          newTrack(greenTrack, checkBlock(new PVector(mouseX,mouseY))  );
+          setDistance(greenTrack);
+        }//end if
+        else
+        {
+          newTrack(redTrack, checkBlock(new PVector(mouseX,mouseY))  );
+          setDistance(redTrack);
+        }//end else
+        
       }//end if
       else
       {

@@ -13,6 +13,7 @@ void setup()
   
   VB = new VersusButton( "Versus",new PVector(width*0.5,height*0.4),new PVector(width*0.2,height*0.05),color(255,0,0) );
   MB = new MapButton( "Map Maker",new PVector(width*0.5,height*0.55),new PVector(width*0.2,height*0.05),color(0,255,0) );
+  g2rB = new G2RButton( "",new PVector(width*0.1,height-grid*2),new PVector(width*0.2,grid*2),color(100) );
   
   tableSetup();
   
@@ -123,6 +124,7 @@ void draw()
       
       displayTrack();
       displayGrid();
+      g2rB.render();
       //displayHighlight();
       break;
     }//end case 2

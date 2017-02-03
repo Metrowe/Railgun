@@ -132,8 +132,7 @@ class G2RButton extends Button
   {
     if(mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y && mouseY < pos.y+size.y)
     {
-      gameMode = 2;
-      setupMap();
+      g2r = !g2r;
     }
   }//end ifClicked
 }//end class VersusButton
