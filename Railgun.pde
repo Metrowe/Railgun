@@ -11,10 +11,10 @@ void setup()
   test = new PVector();//
   mouse = new PVector();//
   
-  VB = new VersusButton( "Versus",new PVector(width*0.5,height*0.4),new PVector(width*0.2,height*0.05),color(255,0,0) );
-  MB = new MapButton( "Map Maker",new PVector(width*0.5,height*0.55),new PVector(width*0.2,height*0.05),color(0,255,0) );
-  g2rB = new G2RButton( "",new PVector(grid*2,height-grid*2),new PVector(grid*5,grid*2),color(100) );
-  SB = new SaveButton( "Save",new PVector(grid*(xg-2),height-grid*2),new PVector(grid*4,grid*2),color(0,255,255) );
+  VB = new VersusButton( "Versus",new PVector(width*0.4,height*0.4),new PVector(width*0.2,height*0.05),color(255,0,0) );
+  MB = new MapButton( "Map Maker",new PVector(width*0.4,height*0.55),new PVector(width*0.2,height*0.05),color(0,255,0) );
+  g2rB = new G2RButton( "",new PVector(0,height-grid*2),new PVector(grid*5,grid*2),color(100) );
+  SB = new SaveButton( "Save",new PVector(width-grid*4,height-grid*2),new PVector(grid*4,grid*2),color(0,255,255) );
   
   tableSetup();
   

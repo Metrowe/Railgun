@@ -25,7 +25,7 @@ class Button
   
   void hover()
   {
-    if(mouseX > pos.x-size.x*0.5 && mouseX < pos.x+size.x*0.5 && mouseY > pos.y && mouseY < pos.y+size.y)
+    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
       fill(c);
       t = color(0);
@@ -41,7 +41,7 @@ class Button
   {
     stroke(c);
     hover();
-    rect(pos.x-size.x*0.5,pos.y,  size.x,size.y);
+    rect(pos.x,pos.y,  size.x,size.y);
     textra();
   }//end render
   
@@ -50,7 +50,7 @@ class Button
     fill(t);
     textAlign(CENTER,CENTER);
     textSize(scale * 0.025);
-    text(label,  pos.x, pos.y+size.y*0.5);
+    text(label,  pos.x+size.x*0.5, pos.y+size.y*0.5);
   }//end extra
 }//end class Button
 
@@ -64,7 +64,7 @@ class VersusButton extends Button
   
   void ifClicked()
   {
-    if(mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y && mouseY < pos.y+size.y)
+    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
       gameMode = 1;
       setupVersus();
@@ -82,7 +82,7 @@ class MapButton extends Button
   
   void ifClicked()
   {
-    if(mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y && mouseY < pos.y+size.y)
+    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
       gameMode = 2;
       setupMap();
@@ -100,7 +100,7 @@ class SaveButton extends Button
   
   void ifClicked()
   {
-    if(mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y && mouseY < pos.y+size.y)
+    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
       saveTrack();
       saveConfirm = 200;
@@ -121,7 +121,7 @@ class G2RButton extends Button
     stroke(c);
     fill(c);
 
-    rect(pos.x - size.x*0.5,pos.y,  size.x,size.y);
+    rect(pos.x,pos.y,  size.x,size.y);
     
     stroke(0,255,0);
     if(g2r)
@@ -132,7 +132,7 @@ class G2RButton extends Button
     {
       fill(c);
     }//end else
-    ellipse(pos.x - size.x*0.25,pos.y + size.y*0.5,  size.y,size.y);
+    ellipse(pos.x + size.x*0.25,pos.y + size.y*0.5,  size.y,size.y);
     
     stroke(255,0,0);
     if(!g2r)
@@ -143,14 +143,14 @@ class G2RButton extends Button
     {
       fill(c);
     }//end else
-    ellipse(pos.x + size.x*0.25,pos.y + size.y*0.5,  size.y,size.y);
+    ellipse(pos.x + size.x*0.75,pos.y + size.y*0.5,  size.y,size.y);
     
     
   }//end render
   
   void ifClicked()
   {
-    if(mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y && mouseY < pos.y+size.y)
+    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
       g2r = !g2r;
     }
