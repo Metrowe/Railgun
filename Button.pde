@@ -89,6 +89,23 @@ class MapButton extends Button
   }//end ifClicked
 }//end class VersusButton
 
+class SaveButton extends Button 
+{
+  
+  SaveButton(String label, PVector pos, PVector size,color c)
+  {
+    super(label,pos,size,c);
+  }//end FreeModeButton
+  
+  void ifClicked()
+  {
+    if(mouseX > pos.x-size.x/2 && mouseX < pos.x+size.x/2 && mouseY > pos.y && mouseY < pos.y+size.y)
+    {
+      saveTrack();
+    }
+  }//end ifClicked
+}//end class VersusButton
+
 class G2RButton extends Button 
 {
   
@@ -101,6 +118,7 @@ class G2RButton extends Button
   {
     stroke(c);
     fill(c);
+
     rect(pos.x - size.x*0.5,pos.y,  size.x,size.y);
     
     stroke(0,255,0);

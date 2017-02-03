@@ -15,7 +15,7 @@ void mouseClicked()
     }//end case 1
     case 2:
     {
-      
+      //g2rB.ifClicked();
       break;
     }//end case 2
   }//end switch
@@ -28,8 +28,8 @@ void mousePressed()
   {
     case 0:
     {
-      VB.ifClicked();
-      MB.ifClicked();
+      //VB.ifClicked();
+      //MB.ifClicked();
       break;
     }//end case 0
     case 1:
@@ -56,6 +56,7 @@ void mousePressed()
       else
       {
         g2rB.ifClicked();
+        SB.ifClicked();
       }//end else
       //PVector block = checkBlock(new PVector(mouseX,mouseY));
         
