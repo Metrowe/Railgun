@@ -13,8 +13,11 @@ void setup()
   
   VB = new VersusButton( "Versus",new PVector(width*0.4,height*0.4),new PVector(width*0.2,height*0.05),color(255,0,0) );
   MB = new MapButton( "Map Maker",new PVector(width*0.4,height*0.55),new PVector(width*0.2,height*0.05),color(0,255,0) );
-  g2rB = new G2RButton( "",new PVector(0,height-grid*2),new PVector(grid*5,grid*2),color(100) );
+  
+  RB = new ResetButton( "Reset",new PVector(grid*5,height-grid*2),new PVector(grid*4,grid*2),color(255,0,255) );
+  CB = new ClearButton( "Clear All",new PVector(grid*9,height-grid*2),new PVector(grid*4,grid*2),color(255,255,0) );
   SB = new SaveButton( "Save",new PVector(width-grid*4,height-grid*2),new PVector(grid*4,grid*2),color(0,255,255) );
+  g2rB = new G2RButton( "",new PVector(0,height-grid*2),new PVector(grid*5,grid*2),color(100) );
   
   tableSetup();
   
@@ -50,10 +53,14 @@ float scale;
 int saveConfirm;
 
 boolean g2r;
+
 VersusButton VB;
 MapButton MB;
-G2RButton g2rB;
+
+ResetButton RB;
+ClearButton CB;
 SaveButton SB;
+G2RButton g2rB;
 
 void draw()
 {
@@ -130,8 +137,10 @@ void draw()
       displayGrid();
       displayConfirm();
       
-      g2rB.render();
+      RB.render();
+      CB.render();
       SB.render();
+      g2rB.render();
       
       //displayHighlight();
       break;

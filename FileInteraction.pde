@@ -24,6 +24,10 @@ void loadData()
       
    }//end for
     
+    
+  setDistance(greenTrack);
+  setDistance(redTrack);
+    
 }//end loadData
 
 /*

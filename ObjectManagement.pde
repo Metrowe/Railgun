@@ -2,8 +2,7 @@ void setupVersus()
 {
   
   loadData();
-  setDistance(greenTrack);
-  setDistance(redTrack);
+  
   if(greenTrack.size() > 1)
   {
     play1 = new Engine(greenTrack);
