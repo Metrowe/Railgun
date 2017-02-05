@@ -43,13 +43,25 @@ void mousePressed()
       {
         if(g2r)
         {
-          newTrack(greenTrack, checkBlock(new PVector(mouseX,mouseY))  );
-          setDistance(greenTrack);
+          if(greenTrack.size() > 0)
+          {
+            newLine(greenTrack);
+          }//end if
+          else
+          {
+            newTrack(greenTrack, checkBlock(new PVector(mouseX,mouseY))  );
+          }//end else
         }//end if
         else
         {
-          newTrack(redTrack, checkBlock(new PVector(mouseX,mouseY))  );
-          setDistance(redTrack);
+          if(redTrack.size() > 0)
+          {
+            newLine(redTrack);
+          }//end if
+          else
+          {
+            newTrack(redTrack, checkBlock(new PVector(mouseX,mouseY))  );
+          }//end else
         }//end else
         
       }//end if

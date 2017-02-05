@@ -51,3 +51,33 @@ void newProjectile(PVector start, PVector velocity)
   Projectile local = new Projectile(front,velocity);
   fire.add(local);
 }//end newProjectile
+
+void newLine(ArrayList<Track> line)
+{
+  Track temp = line.get(line.size() - 1);
+  PVector current = new PVector(temp.loc.x,temp.loc.y);
+  PVector dest = checkBlock(new PVector(mouseX,mouseY));
+
+  while(current.x != dest.x || current.y != dest.y)
+  {
+    if(current.x < dest.x)
+    {
+      current.x++;
+    }//end if
+    else if(current.x > dest.x)
+    {
+      current.x--;
+    }//end if
+    
+    if(current.y < dest.y)
+    {
+      current.y++;
+    }//end if
+    else if(current.y > dest.y)
+    {
+      current.y--;
+    }//end if
+
+    newTrack(line, current);
+  }//end while
+}//end newLine
