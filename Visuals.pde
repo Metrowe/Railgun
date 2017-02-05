@@ -41,10 +41,21 @@ void displayTemplate(ArrayList<Track> line)
     PVector current = new PVector(temp.loc.x,temp.loc.y);
     PVector dest = checkBlock(new PVector(mouseX,mouseY));
     
+    //println("curr = " + current.x + " " + current.y);
+      //println("dest = " + dest.x + " " + dest.y);
+    
+    
+    
     noStroke();
     fill(255,255,0);
     
-    while(current == dest)
+    //rect(current.x*grid,current.y*grid,  grid,grid);
+    //rect(dest.x*grid,dest.y*grid,  grid,grid);
+    //println(current == dest);
+    //println(current.x != dest.x || current.y != dest.y);
+    
+    //while(current == dest)
+    while(current.x != dest.x || current.y != dest.y)
     {
       
       println("curr = " + current.x + " " + current.y);
@@ -129,6 +140,6 @@ PVector checkBlock(PVector in)
   //toggle((int)(mouseX/cw),(int)(mouseY/ch),true);
   //out.x = round(in.x/grid);
   //out.y = round(in.y/grid);
-  println(int(in.x/grid));
+  //println(int(in.x/grid));
   return out;
 }//end checkBlock
