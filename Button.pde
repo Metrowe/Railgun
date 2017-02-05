@@ -143,6 +143,23 @@ class ResetButton extends Button
   }//end ifClicked
 }//end class VersusButton
 
+class ExitButton extends Button 
+{
+  
+  ExitButton(String label, PVector pos, PVector size,color c)
+  {
+    super(label,pos,size,c);
+  }//end FreeModeButton
+  
+  void ifClicked()
+  {
+    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
+    {
+      gameMode = 0;
+    }
+  }//end ifClicked
+}//end class VersusButton
+
 class G2RButton extends Button 
 {
   

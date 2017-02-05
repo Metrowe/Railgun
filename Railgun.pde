@@ -14,9 +14,10 @@ void setup()
   VB = new VersusButton( "Versus",new PVector(width*0.4,height*0.4),new PVector(width*0.2,height*0.05),color(255,0,0) );
   MB = new MapButton( "Map Maker",new PVector(width*0.4,height*0.55),new PVector(width*0.2,height*0.05),color(0,255,0) );
   
-  RB = new ResetButton( "Reset",new PVector(grid*5,height-grid*2),new PVector(grid*4,grid*2),color(255,0,255) );
-  CB = new ClearButton( "Clear All",new PVector(grid*9,height-grid*2),new PVector(grid*4,grid*2),color(255,255,0) );
+  RB = new ResetButton( "Reset",new PVector(width-grid*8,height-grid*2),new PVector(grid*4,grid*2),color(255,0,255) );
+  CB = new ClearButton( "Clear All",new PVector(width-grid*12,height-grid*2),new PVector(grid*4,grid*2),color(255,255,0) );
   SB = new SaveButton( "Save",new PVector(width-grid*4,height-grid*2),new PVector(grid*4,grid*2),color(0,255,255) );
+  EB = new ExitButton( "Exit",new PVector(width-grid*16,height-grid*2),new PVector(grid*4,grid*2),color(0,255,255) );
   g2rB = new G2RButton( "",new PVector(0,height-grid*2),new PVector(grid*5,grid*2),color(100) );
   
   tableSetup();
@@ -60,6 +61,7 @@ MapButton MB;
 ResetButton RB;
 ClearButton CB;
 SaveButton SB;
+ExitButton EB;
 G2RButton g2rB;
 
 void draw()
@@ -136,10 +138,19 @@ void draw()
       displayTrack();
       displayGrid();
       displayConfirm();
+      if(g2r)
+      {
+        displayTemplate(greenTrack);
+      }
+      else
+      {
+        displayTemplate(redTrack);
+      }//end else
       
       RB.render();
       CB.render();
       SB.render();
+      EB.render();
       g2rB.render();
       
       //displayHighlight();

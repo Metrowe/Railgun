@@ -31,6 +31,58 @@ void displayTrack()
   }//end for
 }//end smallRock
 
+void displayTemplate(ArrayList<Track> line)
+{
+  
+
+  if(mouseY < height - grid*2 && line.size() > 0)
+  {
+    Track temp = line.get(0);
+    PVector current = new PVector(temp.loc.x,temp.loc.y);
+    PVector dest = checkBlock(new PVector(mouseX,mouseY));
+    
+    noStroke();
+    fill(255,255,0);
+    
+    while(current != dest)
+    {
+      if(current.x < dest.x)
+      {
+        current.x++;
+      }//end if
+      else if(current.x > dest.x)
+      {
+        current.x--;
+      }//end if
+      
+      if(current.y < dest.y)
+      {
+        current.y++;
+      }//end if
+      else if(current.y > dest.y)
+      {
+        current.y--;
+      }//end if
+      
+      
+    rect(current.x*grid,current.y*grid,  grid,grid);
+      
+    }//end while
+
+    
+  }//end if
+  else
+  {
+    RB.ifClicked();
+    CB.ifClicked();
+    SB.ifClicked();
+    EB.ifClicked();
+    g2rB.ifClicked();
+  }//end else
+
+
+}//end displayTemplate
+
 void displayConfirm()
 {
   textAlign(LEFT,TOP);
