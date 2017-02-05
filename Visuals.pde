@@ -37,15 +37,19 @@ void displayTemplate(ArrayList<Track> line)
 
   if(mouseY < height - grid*2 && line.size() > 0)
   {
-    Track temp = line.get(0);
+    Track temp = line.get(line.size() - 1);
     PVector current = new PVector(temp.loc.x,temp.loc.y);
     PVector dest = checkBlock(new PVector(mouseX,mouseY));
     
     noStroke();
     fill(255,255,0);
     
-    while(current != dest)
+    while(current == dest)
     {
+      
+      println("curr = " + current.x + " " + current.y);
+      println("dest = " + dest.x + " " + dest.y);
+      println(current == dest);
       if(current.x < dest.x)
       {
         current.x++;
@@ -65,7 +69,7 @@ void displayTemplate(ArrayList<Track> line)
       }//end if
       
       
-    rect(current.x*grid,current.y*grid,  grid,grid);
+      rect(current.x*grid,current.y*grid,  grid,grid);
       
     }//end while
 
@@ -73,11 +77,7 @@ void displayTemplate(ArrayList<Track> line)
   }//end if
   else
   {
-    RB.ifClicked();
-    CB.ifClicked();
-    SB.ifClicked();
-    EB.ifClicked();
-    g2rB.ifClicked();
+
   }//end else
 
 
