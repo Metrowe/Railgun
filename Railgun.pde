@@ -57,7 +57,7 @@ float scale;
 
 int saveConfirm;
 
-
+int one = 1;///////////////////////////////////
 
 boolean g2r;
 boolean mapSelect;
@@ -114,8 +114,8 @@ void draw()
       allFire();
       
       //println("FireSize = " + fire.size());
-      play1.render();
-      play1.update();
+      //play1.render();
+      //play1.update();
       
       play2.render();
       play2.update();

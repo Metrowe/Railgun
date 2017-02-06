@@ -12,13 +12,14 @@ class Engine
   float next;
   float previous;
   
-  //float theta;
+  float theta;
   float thetav;
   ArrayList<Track> railway;
   
-  Engine(ArrayList<Track> railway, int controlScheme)
+  Engine(ArrayList<Track> railway, int controlScheme,int trak)
   {
-    trak = 0;
+    //trak = 0;
+    this.trak = trak;
     this.controlScheme = controlScheme;
     this.railway = railway;
     Track got = railway.get(trak);
@@ -68,8 +69,8 @@ class Engine
     ////////////////////
     
     
-    Track got = railway.get(trak);
-    println("Theta = " + (degrees(got.theta)%360));
+    //Track got = railway.get(trak);
+    //println("Theta = " + (degrees(got.theta)%360));
     
   }//endrender
   
@@ -140,49 +141,11 @@ class Engine
   
   void update()
   {
-   
-    /*
-    if (checkKey('w'))
-    {
-      accel = 2;      
-    }//end if
-    else if (checkKey('s'))
-    {
-      accel = -2;      
-    }//end else if
-    */
-    /*
-    if (checkKey('a'))
-    {
-      PVector shotSpeed = new PVector();
-      shotSpeed.x = sin(theta - TWO_PI/4) * 1;
-      shotSpeed.y = -cos(theta - TWO_PI/4) * 1;
-      //newProjectile(pos.x,pos.y, shotSpeed);
-      newProjectile(pos, shotSpeed);
-    }//end if
-    else if (checkKey('d'))
-    {
-      PVector shotSpeed = new PVector();
-      shotSpeed.x = sin(theta + TWO_PI/4) * 5;
-      shotSpeed.y = -cos(theta + TWO_PI/4) * 5;
-      
-
-      //newProjectile(bugCheck, shotSpeed);     
-      //newProjectile(pos.x,pos.y, shotSpeed);
-      newProjectile(pos, shotSpeed);     
-    }//end else if
-    */
     move();
     shoot();
-    
-    
-    
-    speed += accel * timeDelta;
-    
-    //println("Speed = " + speed);
-    //PVector velocity = jump();
 
-    //pos.add(PVector.mult(velocity, timeDelta));
+    speed += accel * timeDelta;
+
     pos.add(jump(speed));
     
     if(next < grid/2)
@@ -190,24 +153,25 @@ class Engine
       Track got1 = railway.get(trak);
       Track got2 = railway.get((trak+1) % railway.size());
       
-      if(  sq(got1.theta - got2.theta) < sq(got1.theta - (got2.theta - TWO_PI))  )
+      println(  degrees(got1.theta)  );
+       println(  degrees(got2.theta)  );
+      //println(  sqrt(sq(got1.theta - got2.theta))  );
+      //println(sq(got1.theta - (got2.theta - TWO_PI)));
+      println("");
+      
+      //if(  sq(got1.theta - got2.theta) < sq(got1.theta - (got2.theta - TWO_PI))  )
+      //if(one == 1)
+      if( sqrt(sq(got1.theta - got2.theta)) < PI)
       {
         thetav = map(next,grid/2,0, got1.theta, (got1.theta+got2.theta)/2 );
       }//end if
       else
       {
-        thetav = map(next,grid/2,0, got1.theta, (got1.theta+got2.theta-TWO_PI)/2 );
-      }//end else
-      
-      
-      
-      /*
-      Track got1 = railway.get(trak);
-      Track got2 = railway.get((trak+1) % railway.size());
-      //(trak+1) % railway.size()
-      thetav = map(next,grid/2,0, got1.theta, (got1.theta+got2.theta)/2 );
-      //thetav = map(next,20,0, theta, thetav);
-      */
+        println("n darn");
+        //thetav = map(next,grid/2,0, got1.theta, (got1.theta+got2.theta + TWO_PI)/2 );
+        thetav = map(next,grid/2,0, got1.theta, (got1.theta+got2.theta)/2   /*-   TWO_PI*/         );
+      }//end else                                                               ///////////
+
     }//end if
     else if(previous < grid/2)
     {
@@ -215,14 +179,18 @@ class Engine
       Track got2 = railway.get(trak);
 
 
-      if(  sq(got1.theta - got2.theta) < sq(got1.theta - (got2.theta - TWO_PI))  )
+      //if(  sq(got1.theta - got2.theta) < sq(got1.theta - (got2.theta - TWO_PI))  )
+      //if(one == 1)
+      if(sqrt(sq(got1.theta - got2.theta)) < PI)
       {
         thetav = map(previous,0,grid/2, (got1.theta+got2.theta)/2, got2.theta);
       }//end if
       else
       {
-        thetav = map(previous,0,grid/2, (got1.theta+got2.theta+TWO_PI)/2, got2.theta);
-      }//end else
+        println("p darn");
+        //thetav = map(previous,0,grid/2, (got1.theta+got2.theta + TWO_PI)/2, got2.theta);
+        thetav = map(previous,0,grid/2, (got1.theta+got2.theta)/2     /*+ TWO_PI*/     , got2.theta);
+      }//end else                                            ///////////////////
 
 
       ////////////////thetav = map(previous,0,grid/2, (got1.theta+got2.theta+TWO_PI)/2, got2.theta);
@@ -363,118 +331,25 @@ class Engine
     return vel;
   }//end jump
 }//end class Engine
-/*
-class Engine
+
+
+class GunCarriage extends Engine 
 {
-  int trak;
-  PVector pos;
-  float speed;
-  float accel;
-  float next;
-  float previous;
+  int fireRate;
+  int fireSpeed;
+  int cooldown;
   
-  Engine()
+  GunCarriage(ArrayList<Track> railway, int controlScheme,int trak)
   {
-    trak = 0;
-    Track got = greenTrack.get(trak);
-    pos = new PVector((got.loc.x*grid)+grid/2,(got.loc.y*grid)+grid/2);
-    speed = 0;
-    accel = 0;
-    next = got.link;
-    previous = 0;
-    //previous = next = got.link;
-  }//end Engine
-  
-  void render()
-  {
-    fill(0,255,255);
-    ellipse(pos.x,pos.y,  10,10);
-  }//end update
-  
-  void update()
-  {
-    if (checkKey('w'))
-    {
-      accel = 7;      
-    }
-    if (checkKey('s'))
-    {
-      accel = -7;      
-    }
-    speed += accel * timeDelta;
-    
-    //PVector velocity = jump(speed);
+    super(railway,controlScheme,trak);
+  }//end FreeModeButton
 
-    //pos.add(PVector.mult(velocity, timeDelta));
-    //pos.add(velocity);
-    pos.add(jump(speed));
-    speed *= 0.99;
-    accel = 0;
-  }//end update
-  
-  PVector jump(float remain)
+}//end class MavhineGun
+
+class MachineGun extends GunCarriage
+{
+  MachineGun(ArrayList<Track> railway, int controlScheme,int trak)
   {
-    //println("speed = " + speed);
-    //println("remai = " + remain);
-    
-    PVector velocity = new PVector();
-    while(remain > next)
-    {
-      //println("next loop");
-      //remain -= next;
-      
-      //println( (remain-next) + " = " + remain  + " - " + next );
-      remain -= next;
-      //trak++;
-      trak = (trak+1) % greenTrack.size();
-      Track got = greenTrack.get(trak);
-      //previous = next = got.link;
-      next = got.link;
-      previous = 0;
-      //pos.set((got.loc.x*grid)+xg/2,(got.loc.y*grid)+yg/2);
-      pos.set((got.loc.x*grid)+grid/2,(got.loc.y*grid)+grid/2);
-    }//end while
-    println("remai = " + remain);
-    //println("break");
-    
-    //while(previous < next)
-    while(remain < previous)
-    {
-      //println("previous loop");
-      //println( (remain+previous) + " = " + remain  + " + " + previous );
-      //remain += previous;
-      remain = remain +previous;
-      //trak++;
-      trak = ((trak-1)+greenTrack.size()) % greenTrack.size();
-      Track got = greenTrack.get(trak);
-      //previous = next = got.link;
-      previous = got.link;
-      next = 0;
-      //pos.set((got.loc.x*grid)+xg/2,(got.loc.y*grid)+yg/2);
-      pos.set((got.loc.x*grid)+grid/2,(got.loc.y*grid)+grid/2);
-    }//end while
-  println("remai = " + remain);
-
-    
-    next -= remain;
-    previous += remain;
-
-    //println("Next = " + next);
-    //println("Prev = " + previous);
-    
-    int trakplus = (trak+1) % greenTrack.size();
-    Track got1 = greenTrack.get(trak);
-    Track got2 = greenTrack.get(trakplus);
-    float theta = atan2(got1.loc.y - got2.loc.y,  got1.loc.x - got2.loc.x) + TWO_PI*0.75;
-    PVector direction = new PVector(sin(theta), -cos(theta));
-    velocity = PVector.mult(direction, remain);
-    
-    //float theta = atan2(pos.y - ((got.loc.y*grid)+grid/2),   pos.x - ((got.loc.x*grid)+grid/2));// + TWO_PI*0.75;
-    //float theta = atan2(pos.y - got.loc.y,   pos.x - got.loc.x) + TWO_PI*0.25;
-    //println("Theta = " + degrees(theta));
-    //float theta = atan2(got.loc.y - pos.y,   got.loc.x - pos.x)-PI/2;
-    
-    return velocity;
-  }//end jump
-}//end class Engine
-*/
+    super(railway,controlScheme,trak);
+  }//end FreeModeButton
+}

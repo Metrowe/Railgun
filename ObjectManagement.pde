@@ -8,12 +8,14 @@ void setupVersus()
   
   if(greenTrack.size() > 1)
   {
-    play1 = new Engine(greenTrack,1);
+    play1 = new Engine(greenTrack,1,0);
+    //play2 = new Engine(greenTrack,1,1);
   }
   
   if(redTrack.size() > 1)
   {
-    play2 = new Engine(redTrack,2);
+    play2 = new Engine(redTrack,2,0);
+    
   }
 }//end setVersus
 
