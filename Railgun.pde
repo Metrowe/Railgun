@@ -59,6 +59,7 @@ int saveConfirm;
 
 
 boolean g2r;
+boolean mapSelect;
 
 VersusButton VB;
 MapButton MB;
@@ -138,36 +139,47 @@ void draw()
     
     case 2:
     {
-      //
-      pushMatrix();
-      //translate(width*0.25,height*0.25);
-      //scale(0.5);
-      ///
-      background(50);
-      
-      displayTrack();
-      displayGrid();
-      displayConfirm();
-      if(g2r)
+      if(mapSelect)
       {
-        displayTemplate(greenTrack);
-      }
+        background(50);
+        
+        pushMatrix();
+        translate(width*0.25,height*0.25);
+        scale(0.5);
+
+        displayTrack();
+        displayGrid();
+
+        popMatrix();
+        //textAlign(LEFT,TOP);
+        textAlign(CENTER,CENTER);
+        textSize(scale * 0.1);
+        fill(255);
+        text("Map " + (map+1),width/2,height * 0.15);
+        
+      }//end if
       else
       {
-        displayTemplate(redTrack);
+        background(50);
+        
+        displayTrack();
+        displayGrid();
+        displayConfirm();
+        if(g2r)
+        {
+          displayTemplate(greenTrack);
+        }
+        else
+        {
+          displayTemplate(redTrack);
+        }//end else
+        
+        RB.render();
+        CB.render();
+        SB.render();
+        EB.render();
+        g2rB.render();
       }//end else
-      
-      RB.render();
-      CB.render();
-      SB.render();
-      EB.render();
-      g2rB.render();
-      
-      //displayHighlight();
-      
-      //
-      popMatrix();
-      //
       
       break;
       

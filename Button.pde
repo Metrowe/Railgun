@@ -85,7 +85,8 @@ class MapButton extends Button
     if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
       gameMode = 2;
-      setupMap();
+      mapSelect = true;
+      loadData(map);
     }
   }//end ifClicked
 }//end class VersusButton
