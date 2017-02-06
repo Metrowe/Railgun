@@ -39,40 +39,43 @@ void mousePressed()
     }//end case 1
     case 2:
     {
-      if(mouseY < height - grid*2)
+      if(!mapSelect)
       {
-        if(g2r)
+        if(mouseY < height - grid*2)
         {
-          if(greenTrack.size() > 0)
+          if(g2r)
           {
-            newLine(greenTrack);
+            if(greenTrack.size() > 0)
+            {
+              newLine(greenTrack);
+            }//end if
+            else
+            {
+              newTrack(greenTrack, checkBlock(new PVector(mouseX,mouseY))  );
+            }//end else
           }//end if
           else
           {
-            newTrack(greenTrack, checkBlock(new PVector(mouseX,mouseY))  );
+            if(redTrack.size() > 0)
+            {
+              newLine(redTrack);
+            }//end if
+            else
+            {
+              newTrack(redTrack, checkBlock(new PVector(mouseX,mouseY))  );
+            }//end else
           }//end else
+          
         }//end if
         else
         {
-          if(redTrack.size() > 0)
-          {
-            newLine(redTrack);
-          }//end if
-          else
-          {
-            newTrack(redTrack, checkBlock(new PVector(mouseX,mouseY))  );
-          }//end else
+          RB.ifClicked();
+          CB.ifClicked();
+          SB.ifClicked();
+          EB.ifClicked();
+          g2rB.ifClicked();
         }//end else
-        
-      }//end if
-      else
-      {
-        RB.ifClicked();
-        CB.ifClicked();
-        SB.ifClicked();
-        EB.ifClicked();
-        g2rB.ifClicked();
-      }//end else
+      }
       //PVector block = checkBlock(new PVector(mouseX,mouseY));
         
     //PVector block = new PVector();

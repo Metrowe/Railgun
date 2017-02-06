@@ -27,12 +27,31 @@ void setupMap()
 
 void allFire()
 {
-  for (int i = fire.size() - 1; i > -1; i--) 
+  for (int i = fire1.size() - 1; i > -1; i--) 
   {
-    Projectile tempProj = fire.get(i);
+    Projectile tempProj = fire1.get(i);
     if (tempProj.front.x < 0 || tempProj.front.x > width || tempProj.front.y < 0 || tempProj.front.y > height) 
     {
-      fire.remove(i);
+      fire1.remove(i);
+    }//end if
+    else
+    {
+      tempProj.update();
+      tempProj.render();
+      if(tempProj.hit(play2))
+      {
+        fire1.remove(i);
+      }//end if
+      
+    }//end else
+  }//end for
+  
+  for (int i = fire2.size() - 1; i > -1; i--) 
+  {
+    Projectile tempProj = fire2.get(i);
+    if (tempProj.front.x < 0 || tempProj.front.x > width || tempProj.front.y < 0 || tempProj.front.y > height) 
+    {
+      fire2.remove(i);
     }//end if
     else
     {
@@ -40,15 +59,15 @@ void allFire()
       tempProj.render();
       if(tempProj.hit(play1))
       {
-        fire.remove(i);
+        fire2.remove(i);
       }//end if
       
     }//end else
   }//end for
 }//end allFire
 
-void newProjectile(PVector start, PVector velocity)
-{
+void newProjectile(PVector start, PVector velocity, ArrayList<Projectile> fire)
+{ 
   PVector front = new PVector(0,0);
   front.add(start);
   Projectile local = new Projectile(front,velocity);

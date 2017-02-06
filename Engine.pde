@@ -112,13 +112,13 @@ class Engine
         
         PVector shotSpeed = new PVector(sin(thetav - TWO_PI/4) * 1,-cos(thetav - TWO_PI/4) * 1);
 
-        newProjectile(pos, shotSpeed);
+        newProjectile(pos, shotSpeed, fire1);
       }//end if
       else if (checkKey(RIGHT))
       {
         PVector shotSpeed = new PVector(sin(thetav + TWO_PI/4) * 1,-cos(thetav + TWO_PI/4) * 1);
 
-        newProjectile(pos, shotSpeed);     
+        newProjectile(pos, shotSpeed,fire1);     
       }//end else if
     }//end if
     else //if (controlScheme == 2) THIS CAN BE ADDED IN THE CASE THAT NUMBER OF PLAYERS IS INCREASED ABOVE TWO
@@ -127,13 +127,13 @@ class Engine
       {
         PVector shotSpeed = new PVector(sin(thetav - TWO_PI/4) * 1,-cos(thetav - TWO_PI/4) * 1);
 
-        newProjectile(pos, shotSpeed);
+        newProjectile(pos, shotSpeed,fire2);
       }//end if
       else if (checkKey('d'))
       {
         PVector shotSpeed = new PVector(sin(thetav + TWO_PI/4) * 1,-cos(thetav + TWO_PI/4) * 1);
 
-        newProjectile(pos, shotSpeed);     
+        newProjectile(pos, shotSpeed,fire2);     
       }//end else if
     }//end else
   }//end shoot

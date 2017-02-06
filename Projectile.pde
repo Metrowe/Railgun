@@ -32,6 +32,7 @@ class Projectile
     back.add(velocity);
   }//end update
   
+  //boolean hit(ArrayList<Engine> player)
   boolean hit(Engine player)
   {
      if(front.dist(player.pos) <= grid * 0.55)
