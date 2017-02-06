@@ -57,7 +57,7 @@ void keyPressed()
       
       if(keyCode == UP)
       {
-        saveTrack();
+        saveTrack(map);
       }//end if
       
       if(keyCode == LEFT)

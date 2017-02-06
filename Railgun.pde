@@ -7,6 +7,8 @@ void setup()
   yg = height/grid;
   scale = (width+height)/2;
   gameMode = 0;
+  map = 0;
+  
   
   test = new PVector();//
   mouse = new PVector();//
@@ -49,9 +51,12 @@ PVector mouse;
 int testHit;
 
 int gameMode;
+int map;
 float scale;
 
 int saveConfirm;
+
+
 
 boolean g2r;
 
@@ -133,6 +138,11 @@ void draw()
     
     case 2:
     {
+      //
+      pushMatrix();
+      //translate(width*0.25,height*0.25);
+      //scale(0.5);
+      ///
       background(50);
       
       displayTrack();
@@ -154,7 +164,14 @@ void draw()
       g2rB.render();
       
       //displayHighlight();
+      
+      //
+      popMatrix();
+      //
+      
       break;
+      
+      
     }//end case 2
   
   

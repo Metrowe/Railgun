@@ -1,7 +1,7 @@
 void setupVersus()
 {
   
-  loadData();
+  loadData(map);
   
   if(greenTrack.size() > 1)
   {
@@ -17,7 +17,7 @@ void setupVersus()
 void setupMap()
 {
   
-  loadData();
+  loadData(map);
   g2r = true;
   saveConfirm = 0;
 }//end setVersus

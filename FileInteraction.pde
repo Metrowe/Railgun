@@ -1,7 +1,40 @@
-void loadData()
+void loadData(int select)
 {
   //Table t = loadTable("data/default.csv", "header");
-  Table t = loadTable("data/new.csv", "header");
+  
+  Table t = new Table();
+  
+  switch(select)
+  {
+    case 0:
+    {
+      t = loadTable("data/default1.csv", "header");
+      break;
+    }//end case 0
+    case 1:
+    {
+      t = loadTable("data/default2.csv", "header");
+      break;
+    }//end case 1
+    case 2:
+    {
+      t = loadTable("data/user1.csv", "header");
+      break;
+    }//end case 2
+    case 3:
+    {
+      t = loadTable("data/user2.csv", "header");
+      break;
+    }//end case 3
+    case 4:
+    {
+      t = loadTable("data/user3.csv", "header");
+      break;
+    }//end case 4
+  }//end switch
+  
+  
+  //Table t = loadTable("data/new.csv", "header");
   
   greenTrack.clear();
   redTrack.clear();
@@ -61,7 +94,7 @@ void newRow(PVector in1, PVector in2)
 
 }//end newRow
 
-void saveTrack()
+void saveTrack(int select)
 {
   tableSetup();
   int i = 0;
@@ -100,5 +133,36 @@ void saveTrack()
     
     i++;
   }//end for
-  saveTable(table, "data/new.csv");
+  
+  switch(select)
+  {
+    case 0:
+    {
+      saveTable(table, "data/default1.csv");
+      break;
+    }//end case 0
+    case 1:
+    {
+      saveTable(table, "data/default2.csv");
+      break;
+    }//end case 1
+    case 2:
+    {
+      saveTable(table, "data/user1.csv");
+      break;
+    }//end case 2
+    case 3:
+    {
+      saveTable(table, "data/user2.csv");
+      break;
+    }//end case 3
+    case 4:
+    {
+      saveTable(table, "data/user3.csv");
+      break;
+    }//end case 4
+  }//end switch
+  
+  
+  //aveTable(table, "data/default1.csv");
 }//end saveTrack

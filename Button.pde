@@ -102,7 +102,7 @@ class SaveButton extends Button
   {
     if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
-      saveTrack();
+      saveTrack(map);
       saveConfirm = 200;
     }
   }//end ifClicked
@@ -138,7 +138,7 @@ class ResetButton extends Button
   {
     if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
-      loadData();
+      loadData(0);
     }
   }//end ifClicked
 }//end class VersusButton
