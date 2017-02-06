@@ -3,16 +3,17 @@ void setupVersus()
   
   loadData(map);
   
-  fire.clear();
+  fire1.clear();
+  fire2.clear();  
   
   if(greenTrack.size() > 1)
   {
-    play1 = new Engine(greenTrack);
+    play1 = new Engine(greenTrack,1);
   }
   
   if(redTrack.size() > 1)
   {
-    play2 = new Engine(redTrack);
+    play2 = new Engine(redTrack,2);
   }
 }//end setVersus
 

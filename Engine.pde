@@ -1,6 +1,7 @@
 class Engine
 {
   int trak;
+  int controlScheme;
   PVector pos;
   
   //float size;
@@ -15,10 +16,11 @@ class Engine
   float thetav;
   ArrayList<Track> railway;
   
-  Engine(ArrayList<Track> line)
+  Engine(ArrayList<Track> railway, int controlScheme)
   {
     trak = 0;
-    railway = line;
+    this.controlScheme = controlScheme;
+    this.railway = railway;
     Track got = railway.get(trak);
     pos = new PVector((got.loc.x*grid)+grid/2,(got.loc.y*grid)+grid/2);
     speed = 0;
@@ -69,33 +71,77 @@ class Engine
     Track got = railway.get(trak);
     println("Theta = " + (degrees(got.theta)%360));
     
-  }//end update
+  }//endrender
+  
+  void move()
+  {
+    if(controlScheme == 1)
+    {
+      if (checkKey(UP))
+      {
+        accel = 2;      
+      }//end if
+      else if (checkKey(DOWN))
+      {
+        accel = -2;      
+      }//end else if
+    }//end if
+    else //if (controlScheme == 2)
+    {
+      if (checkKey('w'))
+      {
+        accel = 2;      
+      }//end if
+      else if (checkKey('s'))
+      {
+        accel = -2;      
+      }//end else if
+    }//end else
+  }//end move
+  
   
   void shoot()
   {
-    if (checkKey('a'))
+    if(controlScheme == 1)
     {
-      PVector shotSpeed = new PVector();
-      shotSpeed.x = sin(thetav - TWO_PI/4) * 1;
-      shotSpeed.y = -cos(thetav - TWO_PI/4) * 1;
-      //newProjectile(pos.x,pos.y, shotSpeed);
-      newProjectile(pos, shotSpeed);
-    }//end if
-    else if (checkKey('d'))
-    {
-      PVector shotSpeed = new PVector();
-      shotSpeed.x = sin(thetav + TWO_PI/4) * 5;
-      shotSpeed.y = -cos(thetav + TWO_PI/4) * 5;
-      
+      if (checkKey(LEFT))
+      {
+        //PVector shotSpeed = new PVector();
+        //shotSpeed.x = sin(thetav - TWO_PI/4) * 1;
+        //shotSpeed.y = -cos(thetav - TWO_PI/4) * 1;
+        
+        PVector shotSpeed = new PVector(sin(thetav - TWO_PI/4) * 1,-cos(thetav - TWO_PI/4) * 1);
 
-      //newProjectile(bugCheck, shotSpeed);     
-      //newProjectile(pos.x,pos.y, shotSpeed);
-      newProjectile(pos, shotSpeed);     
-    }//end else if
+        newProjectile(pos, shotSpeed);
+      }//end if
+      else if (checkKey(RIGHT))
+      {
+        PVector shotSpeed = new PVector(sin(thetav + TWO_PI/4) * 1,-cos(thetav + TWO_PI/4) * 1);
+
+        newProjectile(pos, shotSpeed);     
+      }//end else if
+    }//end if
+    else //if (controlScheme == 2) THIS CAN BE ADDED IN THE CASE THAT NUMBER OF PLAYERS IS INCREASED ABOVE TWO
+    {
+      if (checkKey('a'))
+      {
+        PVector shotSpeed = new PVector(sin(thetav - TWO_PI/4) * 1,-cos(thetav - TWO_PI/4) * 1);
+
+        newProjectile(pos, shotSpeed);
+      }//end if
+      else if (checkKey('d'))
+      {
+        PVector shotSpeed = new PVector(sin(thetav + TWO_PI/4) * 1,-cos(thetav + TWO_PI/4) * 1);
+
+        newProjectile(pos, shotSpeed);     
+      }//end else if
+    }//end else
   }//end shoot
   
   void update()
   {
+   
+    /*
     if (checkKey('w'))
     {
       accel = 2;      
@@ -104,7 +150,7 @@ class Engine
     {
       accel = -2;      
     }//end else if
-    
+    */
     /*
     if (checkKey('a'))
     {
@@ -126,7 +172,7 @@ class Engine
       newProjectile(pos, shotSpeed);     
     }//end else if
     */
-    
+    move();
     shoot();
     
     

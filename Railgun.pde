@@ -40,7 +40,8 @@ Table table;
 ArrayList<Track> greenTrack = new ArrayList<Track>();
 ArrayList<Track> redTrack = new ArrayList<Track>();
 
-ArrayList<Projectile> fire = new ArrayList<Projectile>();
+ArrayList<Projectile> fire1 = new ArrayList<Projectile>();
+ArrayList<Projectile> fire2 = new ArrayList<Projectile>();
 
 float timeDelta = 1.0f / 60.0f;
 int grid;
@@ -114,7 +115,7 @@ void draw()
       
       //println("FireSize = " + fire.size());
       play1.render();
-      //play1.update();
+      play1.update();
       
       play2.render();
       play2.update();

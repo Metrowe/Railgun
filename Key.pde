@@ -78,12 +78,12 @@ void keyPressed()
         
         if(keyCode == UP)
         {
-          saveTrack(map);
+          //saveTrack(map);
         }//end if
         
         if(keyCode == LEFT)
         {
-          redTrack.clear();
+          //redTrack.clear();
         }//end if
         /////////////////////////////////////
       }//end else
