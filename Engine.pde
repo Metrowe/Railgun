@@ -12,6 +12,8 @@ class Engine
   
   float theta;
   float thetav;
+  
+  color theme;
   ArrayList<Track> railway;
   
   Engine(ArrayList<Track> railway, int controlScheme,int trak)
@@ -25,6 +27,7 @@ class Engine
     accel = 0;
     next = got.link;
     previous = 0;
+    theme = color(255);
   }//end Engine
   
   void render()
@@ -37,7 +40,7 @@ class Engine
     ellipse(pos.x,pos.y,  grid*1.1,grid*1.1);
     
     stroke(0,0,255);
-    
+    fill(theme);
 
     pushMatrix();
     translate(pos.x, pos.y);
@@ -255,6 +258,7 @@ class MachineGun extends GunCarriage
     damage = 10;
     cooldown = 0;
     c = color(0,0,255);
+    theme = c;
   }//end FreeModeButton
   
   void trigger(float theta, ArrayList<Projectile> fire)
@@ -262,6 +266,36 @@ class MachineGun extends GunCarriage
     PVector shotSpeed = new PVector(sin(theta) * fireSpeed,-cos(theta) * fireSpeed);
   
     newProjectile(pos, shotSpeed, damage,c, fire);
+    cooldown = fireRate;
+  }//end trigger
+}
+
+class Shotgun extends GunCarriage
+{
+  int pellets;
+  float range;
+  Shotgun(ArrayList<Track> railway, int controlScheme,int trak)
+  {
+    super(railway,controlScheme,trak);
+    fireRate = 60;
+    fireSpeed = 3;
+    damage = 2;
+    cooldown = 0;
+    pellets = 6;
+    range = radians(100);
+    c = color(255,255,0);
+    theme = c;
+  }//end FreeModeButton
+  
+  void trigger(float theta, ArrayList<Projectile> fire)
+  {
+    float temp; 
+    for(int i = 0;i < pellets;i++)
+    {
+      temp = theta - range/2 + (range/pellets)*i;
+      PVector shotSpeed = new PVector(sin(temp) * fireSpeed,-cos(temp) * fireSpeed);
+      newProjectile(pos, shotSpeed, damage,c, fire);
+    }//end for
     cooldown = fireRate;
   }//end trigger
 }

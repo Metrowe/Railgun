@@ -33,7 +33,10 @@ void setup()
 
 Engine play1;
 //Engine play2;
-MachineGun play2;
+//MachineGun play2;
+//Shotgun play2;
+
+ArrayList<Engine>play2 = new ArrayList<Engine>();
 
 //ArrayList<Planet> planets = new ArrayList<Planet>();
 Table table;
@@ -119,8 +122,17 @@ void draw()
       //play1.render();
       //play1.update();
       
-      play2.render();
-      play2.update();
+      
+      for (int i = play2.size() - 1; i > -1; i--) 
+      {
+        Engine tempEng = play2.get(i);
+        tempEng.render();
+        tempEng.update();
+        
+      }//end for
+      
+      //play2.render();
+      //play2.update();
       
       /*
       if(redTrack.size() > 1)

@@ -15,7 +15,15 @@ void setupVersus()
   if(redTrack.size() > 1)
   {
     //play2 = new Engine(redTrack,2,0);
-    play2 = new MachineGun(redTrack,2,0);
+    //play2 = new MachineGun(redTrack,2,0);
+    //play2 = new Shotgun(redTrack,2,0);
+    Engine newEng1 = new Engine(redTrack,2,0);
+    play2.add(newEng1);
+    Shotgun newEng2 = new Shotgun(redTrack,2,redTrack.size() - 1);
+    play2.add(newEng2);
+    MachineGun newEng3 = new MachineGun(redTrack,2,redTrack.size() - 2);
+    play2.add(newEng3);
+
     
   }
 }//end setVersus
@@ -41,11 +49,15 @@ void allFire()
     {
       tempProj.update();
       tempProj.render();
-      if(tempProj.hit(play2))
-      {
-        fire1.remove(i);
-      }//end if
       
+      for (int j = play2.size() - 1; j > -1; j--) 
+      {
+          Engine tempEng = play2.get(j);
+          if(tempProj.hit(tempEng))
+          {
+            fire1.remove(i);
+          }//end if
+      }//end for
     }//end else
   }//end for
   
