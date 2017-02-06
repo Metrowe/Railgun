@@ -3,6 +3,8 @@ void setupVersus()
   
   loadData(map);
   
+  fire.clear();
+  
   if(greenTrack.size() > 1)
   {
     play1 = new Engine(greenTrack);

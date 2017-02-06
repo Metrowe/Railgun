@@ -19,7 +19,7 @@ void displayTrack()
   {
     Track tempTrack = redTrack.get(i);
 
-    tempTrack.render(  color(255,0,0)  );
+    tempTrack.render(  color(200,0,0)  );
   }//end for
   
   for (int i = greenTrack.size() - 1; i > -1; i--) 

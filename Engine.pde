@@ -3,7 +3,7 @@ class Engine
   int trak;
   PVector pos;
   
-  float size;
+  //float size;
   
   float speed;
   float accel;
@@ -11,7 +11,7 @@ class Engine
   float next;
   float previous;
   
-  float theta;
+  //float theta;
   float thetav;
   ArrayList<Track> railway;
   
@@ -25,7 +25,8 @@ class Engine
     accel = 0;
     next = got.link;
     previous = 0;
-    thetav = theta = 0;
+    //thetav = theta = 0;
+    //thetav = theta = 0;
     //previous = next = got.link;
   }//end Engine
   
@@ -70,6 +71,28 @@ class Engine
     
   }//end update
   
+  void shoot()
+  {
+    if (checkKey('a'))
+    {
+      PVector shotSpeed = new PVector();
+      shotSpeed.x = sin(thetav - TWO_PI/4) * 1;
+      shotSpeed.y = -cos(thetav - TWO_PI/4) * 1;
+      //newProjectile(pos.x,pos.y, shotSpeed);
+      newProjectile(pos, shotSpeed);
+    }//end if
+    else if (checkKey('d'))
+    {
+      PVector shotSpeed = new PVector();
+      shotSpeed.x = sin(thetav + TWO_PI/4) * 5;
+      shotSpeed.y = -cos(thetav + TWO_PI/4) * 5;
+      
+
+      //newProjectile(bugCheck, shotSpeed);     
+      //newProjectile(pos.x,pos.y, shotSpeed);
+      newProjectile(pos, shotSpeed);     
+    }//end else if
+  }//end shoot
   
   void update()
   {
@@ -104,25 +127,7 @@ class Engine
     }//end else if
     */
     
-    if (checkKey('a'))
-    {
-      PVector shotSpeed = new PVector();
-      shotSpeed.x = sin(thetav - TWO_PI/4) * 1;
-      shotSpeed.y = -cos(thetav - TWO_PI/4) * 1;
-      //newProjectile(pos.x,pos.y, shotSpeed);
-      newProjectile(pos, shotSpeed);
-    }//end if
-    else if (checkKey('d'))
-    {
-      PVector shotSpeed = new PVector();
-      shotSpeed.x = sin(thetav + TWO_PI/4) * 5;
-      shotSpeed.y = -cos(thetav + TWO_PI/4) * 5;
-      
-
-      //newProjectile(bugCheck, shotSpeed);     
-      //newProjectile(pos.x,pos.y, shotSpeed);
-      newProjectile(pos, shotSpeed);     
-    }//end else if
+    shoot();
     
     
     
@@ -300,8 +305,8 @@ class Engine
     int trakplus = (trak+1) % railway.size();
     Track got1 = railway.get(trak);
     Track got2 = railway.get(trakplus);
-    theta = atan2(got1.loc.y - got2.loc.y,  got1.loc.x - got2.loc.x) + TWO_PI*0.75;
-    PVector direction = new PVector(sin(theta), -cos(theta));
+    thetav = atan2(got1.loc.y - got2.loc.y,  got1.loc.x - got2.loc.x) + TWO_PI*0.75;
+    PVector direction = new PVector(sin(thetav), -cos(thetav));
     vel = PVector.mult(direction, remain);
     
     //float theta = atan2(pos.y - ((got.loc.y*grid)+grid/2),   pos.x - ((got.loc.x*grid)+grid/2));// + TWO_PI*0.75;
