@@ -14,7 +14,8 @@ void setupVersus()
   
   if(redTrack.size() > 1)
   {
-    play2 = new Engine(redTrack,2,0);
+    //play2 = new Engine(redTrack,2,0);
+    play2 = new MachineGun(redTrack,2,0);
     
   }
 }//end setVersus
@@ -68,11 +69,11 @@ void allFire()
   }//end for
 }//end allFire
 
-void newProjectile(PVector start, PVector velocity, ArrayList<Projectile> fire)
+void newProjectile(PVector start, PVector velocity, float damage, color c, ArrayList<Projectile> fire)
 { 
   PVector front = new PVector(0,0);
   front.add(start);
-  Projectile local = new Projectile(front,velocity);
+  Projectile local = new Projectile(front,velocity,damage,c);
   fire.add(local);
 }//end newProjectile
 

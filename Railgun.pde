@@ -32,7 +32,9 @@ void setup()
 }//end setup
 
 Engine play1;
-Engine play2;
+//Engine play2;
+MachineGun play2;
+
 //ArrayList<Planet> planets = new ArrayList<Planet>();
 Table table;
 

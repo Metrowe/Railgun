@@ -200,6 +200,7 @@ class GunCarriage extends Engine
   int fireSpeed;
   int damage;
   int cooldown;
+  color c;
   
   GunCarriage(ArrayList<Track> railway, int controlScheme,int trak)
   {
@@ -208,48 +209,59 @@ class GunCarriage extends Engine
   
   void shoot()
   {
+    
     if(cooldown < 1)
     {
       if(controlScheme == 1)
       {
         if (checkKey(LEFT))
         {
-          PVector shotSpeed = new PVector(sin(thetav - TWO_PI/4) * 1,-cos(thetav - TWO_PI/4) * 1);
-  
-          newProjectile(pos, shotSpeed, fire1);
+          trigger(thetav - TWO_PI/4,fire1);
         }//end if
         else if (checkKey(RIGHT))
         {
-          PVector shotSpeed = new PVector(sin(thetav + TWO_PI/4) * 1,-cos(thetav + TWO_PI/4) * 1);
-  
-          newProjectile(pos, shotSpeed,fire1);     
+          trigger(thetav + TWO_PI/4,fire1);    
         }//end else if
       }//end if
       else
       {
         if (checkKey('a'))
         {
-          PVector shotSpeed = new PVector(sin(thetav - TWO_PI/4) * 1,-cos(thetav - TWO_PI/4) * 1);
-       
-          newProjectile(pos, shotSpeed,fire2);
+          trigger(thetav - TWO_PI/4,fire2);
         }//end if
         else if (checkKey('d'))
         {
-          PVector shotSpeed = new PVector(sin(thetav + TWO_PI/4) * 1,-cos(thetav + TWO_PI/4) * 1);
-        
-          newProjectile(pos, shotSpeed,fire2);     
+          trigger(thetav + TWO_PI/4,fire2);
         }//end else if
       }//end else
     }//end if
       
-      
+    cooldown--;
   }//end shoot
-}//end class MavhineGun
+  
+  void trigger(float theta, ArrayList<Projectile> fire)
+  {
+    
+  }//end trigger
+}//end class MachineGun
 
 class MachineGun extends GunCarriage
 {
   MachineGun(ArrayList<Track> railway, int controlScheme,int trak)
   {
     super(railway,controlScheme,trak);
+    fireRate = 5;
+    fireSpeed = 6;
+    damage = 10;
+    cooldown = 0;
+    c = color(0,0,255);
   }//end FreeModeButton
+  
+  void trigger(float theta, ArrayList<Projectile> fire)
+  {
+    PVector shotSpeed = new PVector(sin(theta) * fireSpeed,-cos(theta) * fireSpeed);
+  
+    newProjectile(pos, shotSpeed, damage,c, fire);
+    cooldown = fireRate;
+  }//end trigger
 }
