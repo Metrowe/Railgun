@@ -2,11 +2,11 @@ void displayGrid()
 {
   stroke(0,255,255);
   strokeWeight(0.1);
-  for(int i = 0;i < xg;i++)
+  for(int i = 0;i < width/grid;i++)
   {
     line(i*grid,0,  i*grid,height);
   }//end for
-  for(int i = 0;i < yg;i++)
+  for(int i = 0;i < height/grid;i++)
   {
     line(0,i*grid,  width,i*grid);
   }//end for

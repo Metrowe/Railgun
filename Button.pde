@@ -98,6 +98,93 @@ class MapButton extends Button
   }//end ifClicked
 }//end class VersusButton
 
+class MapSelectButton extends Button 
+{
+  
+  MapSelectButton(String label, PVector pos, PVector size,color c)
+  {
+    super(label,pos,size,c);
+  }//end FreeModeButton
+  
+  void ifClicked()
+  {
+    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
+    {
+      mapSelect = false;
+      setupMap();
+    }
+  }//end ifClicked
+}//end class VersusButton
+
+/*
+if(keyCode == 'a' || keyCode == 'A')
+      {
+        map = (map - 1 + 5) % 5;
+        loadData(map);
+      }//end if
+      else if(keyCode == 'd' || keyCode == 'D')
+      {
+        map = (map + 1) % 5;
+        loadData(map);
+      }//end else if
+      else if(keyCode == ENTER || keyCode == 'e' || keyCode == 'E')
+      {
+        mapSelect = false;
+        setupMap();
+      }//end else if
+*/
+
+class LeftMapButton extends Button 
+{
+  
+  LeftMapButton(String label, PVector pos, PVector size,color c)
+  {
+    super(label,pos,size,c);
+  }//end FreeModeButton
+  
+  void ifClicked()
+  {
+    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
+    {
+      map = (map - 1 + 5) % 5;
+      loadData(map);
+    }
+  }//end ifClicked
+}//end class VersusButton
+
+class RightMapButton extends Button 
+{
+  
+  RightMapButton(String label, PVector pos, PVector size,color c)
+  {
+    super(label,pos,size,c);
+  }//end FreeModeButton
+  
+  void ifClicked()
+  {
+    if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
+    {
+      map = (map + 1) % 5;
+      loadData(map);
+    }
+  }//end ifClicked
+}//end class VersusButton
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class SaveButton extends Button 
 {
   

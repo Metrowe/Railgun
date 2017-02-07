@@ -1,12 +1,9 @@
-///Test upload aftter hardware failure
 void setup()
 {
-  //size(200,400);
   size(600,600);
-  //grid = 20;
   grid = width/40;
-  xg = width/grid;
-  yg = height/grid;
+  //xg = width/grid;
+  //yg = height/grid;
   scale = (width+height)/2;
   gameMode = 0;
   map = 0;
@@ -18,6 +15,10 @@ void setup()
   
   VB = new VersusButton( "Versus",new PVector(width*0.4,height*0.4),new PVector(width*0.2,height*0.05),color(255,0,0) );
   MB = new MapButton( "Map Maker",new PVector(width*0.4,height*0.55),new PVector(width*0.2,height*0.05),color(0,255,0) );
+  
+  MSB = new MapSelectButton( "Select Map",new PVector(width*0.4,height*0.8),new PVector(width*0.2,height*0.05),color(255,172,62) );
+  LMB = new LeftMapButton( "<-",new PVector(width*0.1,height*0.3),new PVector(width*0.05,height*0.3),color(255,172,62) );
+  RMB = new RightMapButton( "->",new PVector(width*0.85,height*0.3),new PVector(width*0.05,height*0.3),color(255,172,62) );
   
   RB = new ResetButton( "Reset",new PVector(width-grid*8,height-grid*2),new PVector(grid*4,grid*2),color(255,0,255) );
   CB = new ClearButton( "Clear All",new PVector(width-grid*12,height-grid*2),new PVector(grid*4,grid*2),color(255,255,0) );
@@ -58,7 +59,7 @@ ArrayList<Projectile> fire2 = new ArrayList<Projectile>();
 
 float timeDelta = 1.0f / 60.0f;
 int grid;
-float xg,yg;
+//float xg,yg;
 PVector test;
 PVector mouse;
 
@@ -81,6 +82,10 @@ int weaponCount;
 
 VersusButton VB;
 MapButton MB;
+
+MapSelectButton MSB;
+LeftMapButton LMB;
+RightMapButton RMB;
 
 ResetButton RB;
 ClearButton CB;
@@ -236,6 +241,10 @@ void draw()
         textSize(scale * 0.1);
         fill(255);
         text("Map " + (map+1),width/2,height * 0.15);
+        
+        MSB.render();
+        LMB.render();
+        RMB.render();
         
       }//end if
       else

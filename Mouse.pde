@@ -76,6 +76,12 @@ void mousePressed()
           g2rB.ifClicked();
         }//end else
       }
+      else
+      {
+        MSB.ifClicked();
+        LMB.ifClicked();
+        RMB.ifClicked();
+      }//end else
       //PVector block = checkBlock(new PVector(mouseX,mouseY));
         
     //PVector block = new PVector();

@@ -10,7 +10,6 @@ class Engine
   float next;
   float previous;
   
-  float theta;
   float thetav;
   
   color theme;
@@ -240,7 +239,6 @@ class GunCarriage extends Engine
   int fireSpeed;
   int damage;
   int cooldown;
-  color c;
   
   GunCarriage(ArrayList<Track> railway, int controlScheme,int trak)
   {
@@ -294,15 +292,15 @@ class Machinegun extends GunCarriage
     fireSpeed = 6;
     damage = 10;
     cooldown = 0;
-    c = color(0,0,255);
-    theme = c;
+    //c = color(0,0,255);
+    theme = color(0,0,255);
   }//end FreeModeButton
   
   void trigger(float theta, ArrayList<Projectile> fire)
   {
     PVector shotSpeed = new PVector(sin(theta) * fireSpeed,-cos(theta) * fireSpeed);
   
-    newProjectile(pos, shotSpeed, damage,c, fire);
+    newProjectile(pos, shotSpeed, damage,theme, fire);
     cooldown = fireRate;
   }//end trigger
 }
@@ -320,8 +318,8 @@ class Shotgun extends GunCarriage
     cooldown = 0;
     pellets = 6;
     range = radians(100);
-    c = color(255,255,0);
-    theme = c;
+    //c = color(255,255,0);
+    theme = color(255,255,0);
   }//end FreeModeButton
   
   void trigger(float theta, ArrayList<Projectile> fire)
@@ -331,7 +329,7 @@ class Shotgun extends GunCarriage
     {
       temp = theta - range/2 + (range/pellets)*i;
       PVector shotSpeed = new PVector(sin(temp) * fireSpeed,-cos(temp) * fireSpeed);
-      newProjectile(pos, shotSpeed, damage,c, fire);
+      newProjectile(pos, shotSpeed, damage,theme, fire);
     }//end for
     cooldown = fireRate;
   }//end trigger
@@ -348,15 +346,15 @@ class Sniper extends GunCarriage
     fireSpeed = 10;
     damage = 101;
     cooldown = 0;
-    c = color(180,0,180);
-    theme = c;
+    //c = color(180,0,180);
+    theme = color(180,0,180);
   }//end FreeModeButton
   
   void trigger(float theta, ArrayList<Projectile> fire)
   {
     PVector shotSpeed = new PVector(sin(theta) * fireSpeed,-cos(theta) * fireSpeed);
   
-    newProjectile(pos, shotSpeed, damage,c, fire);
+    newProjectile(pos, shotSpeed, damage,theme, fire);
     cooldown = fireRate;
   }//end trigger
 }
