@@ -66,8 +66,13 @@ class VersusButton extends Button
   {
     if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
+      /*
       gameMode = 1;
       setupVersus();
+      */
+      gameMode = 1;
+      mapSelect = true;
+      loadData(map);
     }
   }//end ifClicked
 }//end class VersusButton

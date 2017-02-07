@@ -38,6 +38,9 @@ Engine play1;
 
 ArrayList<Engine>play2 = new ArrayList<Engine>();
 
+//int[] select1 = new int[4];
+int[] select2 = new int[3];
+
 //ArrayList<Planet> planets = new ArrayList<Planet>();
 Table table;
 
@@ -78,6 +81,7 @@ G2RButton g2rB;
 
 void draw()
 {
+  //println( select2.length );
   //println("Red Size = " + redTrack.size() );
   //println("Gre Size = " + greenTrack.size() );
   //if(frameCount % 1 == 0)
@@ -111,44 +115,65 @@ void draw()
     
     case 1:
     {
-      background(50);
-      
-      displayTrack();
-      displayGrid();
-      
-      allFire();
-      
-      //println("FireSize = " + fire.size());
-      //play1.render();
-      //play1.update();
-      
-      
-      for (int i = play2.size() - 1; i > -1; i--) 
+      if(mapSelect)
       {
-        Engine tempEng = play2.get(i);
-        tempEng.render();
-        tempEng.update();
+        background(50);
         
-      }//end for
-      
-      //play2.render();
-      //play2.update();
-      
-      /*
-      if(redTrack.size() > 1)
-      {
-        play2.render();
-        play2.update();
-      }//end if
-     */
-     
-      if(testHit > 0)///////////////////
-      {
+        pushMatrix();
+        translate(width*0.25,height*0.25);
+        scale(0.5);
+
+        displayTrack();
+        displayGrid();
+
+        popMatrix();
+        //textAlign(LEFT,TOP);
+        textAlign(CENTER,CENTER);
+        textSize(scale * 0.1);
         fill(255);
-        text("HIT",width*0.5,height*0.1);
-        testHit--;
-      }//end if///////////////////////
-      
+        text("Map " + (map+1),width/2,height * 0.15);
+        
+      }//end if
+      else
+      {
+        background(50);
+        
+        displayTrack();
+        displayGrid();
+        
+        allFire();
+        
+        //println("FireSize = " + fire.size());
+        //play1.render();
+        //play1.update();
+        
+        
+        for (int i = play2.size() - 1; i > -1; i--) 
+        {
+          Engine tempEng = play2.get(i);
+          tempEng.render();
+          tempEng.update();
+          
+        }//end for
+        
+        //play2.render();
+        //play2.update();
+        
+        /*
+        if(redTrack.size() > 1)
+        {
+          play2.render();
+          play2.update();
+        }//end if
+       */
+       
+        if(testHit > 0)///////////////////
+        {
+          fill(255);
+          text("HIT",width*0.5,height*0.1);
+          testHit--;
+        }//end if///////////////////////
+      }//end else
       break;
     }//end case 1
     

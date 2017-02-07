@@ -22,12 +22,37 @@ void keyPressed()
     
     case 1:
     {
-      //if(keyCode == BACKSPACE)
+      if(mapSelect)
+      {
+        if(keyCode == 'a' || keyCode == 'A')
+        {
+          map = (map - 1 + 5) % 5;
+          loadData(map);
+        }//end if
+        else if(keyCode == 'd' || keyCode == 'D')
+        {
+          map = (map + 1) % 5;
+          loadData(map);
+        }//end else if
+        else if(keyCode == 'e' || keyCode == 'E')
+        {
+          mapSelect = false;
+          setupVersus();
+        }//end else if
+      }//end if
+      else
+      {
+        
+      }//end else
+      
       if(keyCode == 'q' || keyCode == 'Q')
       {
-        //play2 = new Engine(greenTrack);
         gameMode = 0;
       }//end if
+    
+      
+      
+      
       
       /*
       if(keyCode == DOWN)
