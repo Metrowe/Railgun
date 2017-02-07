@@ -39,7 +39,8 @@ Engine play1;
 ArrayList<Engine>play2 = new ArrayList<Engine>();
 
 //int[] select1 = new int[4];
-int[] select2 = new int[3];
+//int[] select2 = new int[3];
+int[] select2 = {0,1,0};
 
 //ArrayList<Planet> planets = new ArrayList<Planet>();
 Table table;

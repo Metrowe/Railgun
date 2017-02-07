@@ -1,3 +1,29 @@
+void assemble(ArrayList<Engine> play, ArrayList<Track> railway, int[] select, int controlScheme)
+{
+  Engine newEng = new Engine(railway,0,select.length);
+  play.add(newEng);
+  
+  for(int i = 0;i < select.length;i++)
+  {
+    switch(select[i])
+    {
+      case 0:
+      {
+        //Shotgun newEng2 = new Shotgun(railway,controlScheme,select.length-i);
+        play.add(new Shotgun(railway,controlScheme,select.length-i-1));
+        
+        break;
+      }//end case 0
+      case 1:
+      {
+        play.add(new MachineGun(railway,controlScheme,select.length-i-1));
+        
+        break;
+      }//end case 1
+    }//end switch
+  }//end for
+}//end assemble
+
 void setupVersus()
 {
   
@@ -16,15 +42,16 @@ void setupVersus()
     //play2 = new Engine(greenTrack,1,1);
   }
   
-  if(redTrack.size() > 1)
+  if(redTrack.size() > select2.length+1)
   {
     //play2 = new Engine(redTrack,2,0);
     //play2 = new MachineGun(redTrack,2,0);
     //play2 = new Shotgun(redTrack,2,0);
     
-    
-    Engine newEng1 = new Engine(redTrack,2,2);
-    play2.add(newEng1);
+    assemble(play2, redTrack, select2, 2);
+    //Engine newEng1 = new Engine(redTrack,2,2);
+    //play2.add(newEng1);
+    //play2.add(new Engine(redTrack,2,2));
     //Shotgun newEng2 = new Shotgun(redTrack,2,1);
     //play2.add(newEng2);
     //MachineGun newEng3 = new MachineGun(redTrack,2,0);

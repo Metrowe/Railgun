@@ -79,7 +79,7 @@ void keyPressed()
           map = (map + 1) % 5;
           loadData(map);
         }//end else if
-        else if(keyCode == ENTER)
+        else if(keyCode == ENTER || keyCode == 'e' || keyCode == 'E')
         {
           mapSelect = false;
           setupMap();

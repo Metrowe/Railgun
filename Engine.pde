@@ -108,12 +108,12 @@ class Engine
       Track got1 = railway.get(trak);
       Track got2 = railway.get((trak+1) % railway.size());
       
-     println(  degrees(got1.theta)  );
-     println(  degrees(got2.theta)  );
+     //println(  degrees(got1.theta)  );
+     //println(  degrees(got2.theta)  );
       //println(  degrees(got1.theta - got2.theta)  );
       
-      println(  degrees( got1.theta)  );
-     println(  degrees(       (got1.theta+got2.theta   )/2                          ) );
+      //println(  degrees( got1.theta)  );
+     //println(  degrees(       (got1.theta+got2.theta   )/2                          ) );
       
       println("");
       
@@ -139,14 +139,14 @@ class Engine
       Track got2 = railway.get(trak);
 
 
-      println(  degrees(got1.theta)  );
-      println(  degrees(got2.theta)  );
+      //println(  degrees(got1.theta)  );
+      //println(  degrees(got2.theta)  );
       //println(  degrees(got1.theta - got2.theta)  );
       
-      println(  degrees((got1.theta+got2.theta)/2)  );
-      println(  degrees( got2.theta  ));
+      //println(  degrees((got1.theta+got2.theta)/2)  );
+      //println(  degrees( got2.theta  ));
       
-      println("");
+      //println("");
 
       //thetav = map(previous,0,grid/2, (got1.theta+got2.theta)/2, got2.theta);
 
