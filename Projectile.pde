@@ -42,6 +42,7 @@ class Projectile
      if(front.dist(player.pos) <= grid * 0.55)
      {
        testHit = 50;
+       player.health -= damage;
        return true;
      }
      else

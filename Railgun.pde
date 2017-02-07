@@ -1,8 +1,10 @@
 ///Test upload aftter hardware failure
 void setup()
 {
+  //size(200,400);
   size(600,600);
-  grid = 20;
+  //grid = 20;
+  grid = width/40;
   xg = width/grid;
   yg = height/grid;
   scale = (width+height)/2;
@@ -31,16 +33,17 @@ void setup()
   //ellipseMode(RADIUS);
 }//end setup
 
-Engine play1;
+//Engine play1;
 //Engine play2;
 //MachineGun play2;
 //Shotgun play2;
-
+ArrayList<Engine>play1 = new ArrayList<Engine>();
 ArrayList<Engine>play2 = new ArrayList<Engine>();
 
 //int[] select1 = new int[4];
 //int[] select2 = new int[3];
-int[] select2 = {0,1,0};
+int[] select1 = {0,1,0};
+int[] select2 = {2,0,2};
 
 //ArrayList<Planet> planets = new ArrayList<Planet>();
 Table table;
@@ -140,7 +143,7 @@ void draw()
         background(50);
         
         displayTrack();
-        displayGrid();
+        //displayGrid();
         
         allFire();
         
@@ -148,6 +151,13 @@ void draw()
         //play1.render();
         //play1.update();
         
+        for (int i = play1.size() - 1; i > -1; i--) 
+        {
+          Engine tempEng = play1.get(i);
+          tempEng.render();
+          tempEng.update();
+          
+        }//end for
         
         for (int i = play2.size() - 1; i > -1; i--) 
         {

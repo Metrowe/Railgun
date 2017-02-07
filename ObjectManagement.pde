@@ -1,27 +1,38 @@
 void assemble(ArrayList<Engine> play, ArrayList<Track> railway, int[] select, int controlScheme)
 {
-  Engine newEng = new Engine(railway,0,select.length);
-  play.add(newEng);
-  
-  for(int i = 0;i < select.length;i++)
+  if(railway.size() > select.length+1)
   {
-    switch(select[i])
+    int trak = select.length;
+    Engine newEng = new Engine(railway,controlScheme,trak);
+    play.add(newEng);
+    
+    for(int i = 0;i < select.length;i++)
     {
-      case 0:
-      {
-        //Shotgun newEng2 = new Shotgun(railway,controlScheme,select.length-i);
-        play.add(new Shotgun(railway,controlScheme,select.length-i-1));
-        
-        break;
-      }//end case 0
-      case 1:
-      {
-        play.add(new MachineGun(railway,controlScheme,select.length-i-1));
-        
-        break;
-      }//end case 1
-    }//end switch
-  }//end for
+      trak--;
+      switch(select[i])
+      { 
+        case 0:
+        {
+          //Shotgun newEng2 = new Shotgun(railway,controlScheme,select.length-i);
+          play.add(new Shotgun(railway,controlScheme,trak));
+          
+          break;
+        }//end case 0
+        case 1:
+        {
+          play.add(new MachineGun(railway,controlScheme,trak));
+          
+          break;
+        }//end case 1
+        case 2:
+        {
+          play.add(new Sniper(railway,controlScheme,trak));
+          
+          break;
+        }//end case 1
+      }//end switch
+    }//end for
+  }//end if
 }//end assemble
 
 void setupVersus()
@@ -32,33 +43,21 @@ void setupVersus()
   fire1.clear();
   fire2.clear();  
   
-  //play1.clear();
+  play1.clear();
   play2.clear();
   
-  
+  /*
   if(greenTrack.size() > 1)
   {
     play1 = new Engine(greenTrack,1,0);
     //play2 = new Engine(greenTrack,1,1);
   }
+  */
   
-  if(redTrack.size() > select2.length+1)
-  {
-    //play2 = new Engine(redTrack,2,0);
-    //play2 = new MachineGun(redTrack,2,0);
-    //play2 = new Shotgun(redTrack,2,0);
-    
-    assemble(play2, redTrack, select2, 2);
-    //Engine newEng1 = new Engine(redTrack,2,2);
-    //play2.add(newEng1);
-    //play2.add(new Engine(redTrack,2,2));
-    //Shotgun newEng2 = new Shotgun(redTrack,2,1);
-    //play2.add(newEng2);
-    //MachineGun newEng3 = new MachineGun(redTrack,2,0);
-    //play2.add(newEng3);
-
-    
-  }
+  assemble(play1, greenTrack, select1, 1);
+  //assemble(play2, greenTrack, select2, 2);
+  assemble(play2, redTrack, select2, 2);
+  
 }//end setVersus
 
 void setupMap()
@@ -89,6 +88,7 @@ void allFire()
           if(tempProj.hit(tempEng))
           {
             fire1.remove(i);
+            break;
           }//end if
       }//end for
     }//end else
@@ -105,11 +105,26 @@ void allFire()
     {
       tempProj.update();
       tempProj.render();
+      
+      for (int k = play2.size() - 1; k > -1; k--) 
+      {
+          Engine tempEng = play1.get(k);
+          if(tempProj.hit(tempEng))
+          {
+            println("i = " + i);
+            println("fire2.size() = " + fire2.size());
+            fire2.remove(i);
+            
+            break;
+          }//end if
+      }//end for
+      
+      /*
       if(tempProj.hit(play1))
       {
         fire2.remove(i);
       }//end if
-      
+      */
     }//end else
   }//end for
 }//end allFire
