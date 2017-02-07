@@ -11,6 +11,7 @@ void setup()
   gameMode = 0;
   map = 0;
   
+  weaponCount = 3;
   
   test = new PVector();//
   mouse = new PVector();//
@@ -35,7 +36,7 @@ void setup()
 
 //Engine play1;
 //Engine play2;
-//MachineGun play2;
+//Machinegun play2;
 //Shotgun play2;
 ArrayList<Engine>play1 = new ArrayList<Engine>();
 ArrayList<Engine>play2 = new ArrayList<Engine>();
@@ -64,15 +65,19 @@ PVector mouse;
 int testHit;
 
 int gameMode;
+int versusStage;
 int map;
 float scale;
 
 int saveConfirm;
 
 int one = 1;///////////////////////////////////
+int s1, s2;
 
 boolean g2r;
 boolean mapSelect;
+
+int weaponCount;
 
 VersusButton VB;
 MapButton MB;
@@ -119,72 +124,96 @@ void draw()
     
     case 1:
     {
-      if(mapSelect)
+      
+      switch(versusStage)
       {
-        background(50);
-        
-        pushMatrix();
-        translate(width*0.25,height*0.25);
-        scale(0.5);
-
-        displayTrack();
-        displayGrid();
-
-        popMatrix();
-        //textAlign(LEFT,TOP);
-        textAlign(CENTER,CENTER);
-        textSize(scale * 0.1);
-        fill(255);
-        text("Map " + (map+1),width/2,height * 0.15);
-        
-      }//end if
-      else
-      {
-        background(50);
-        
-        displayTrack();
-        //displayGrid();
-        
-        allFire();
-        
-        //println("FireSize = " + fire.size());
-        //play1.render();
-        //play1.update();
-        
-        for (int i = play1.size() - 1; i > -1; i--) 
+        case 0:
         {
-          Engine tempEng = play1.get(i);
-          tempEng.render();
-          tempEng.update();
+          background(50);
           
-        }//end for
-        
-        for (int i = play2.size() - 1; i > -1; i--) 
-        {
-          Engine tempEng = play2.get(i);
-          tempEng.render();
-          tempEng.update();
+          //displayCarriage(select1,s1);
+          //displayCarriage(select2,s2);
           
-        }//end for
-        
-        //play2.render();
-        //play2.update();
-        
-        /*
-        if(redTrack.size() > 1)
+          displayCarriage("Player 1", new PVector(width*0.4-height*0.15,height*0.2),select1,s1);
+          displayCarriage("Player 2", new PVector(width*0.6,height*0.2),select2,s2);
+          
+          break;
+        }//end case
+        case 1:
         {
-          play2.render();
-          play2.update();
-        }//end if
-       */
-       
-        if(testHit > 0)///////////////////
-        {
+          background(50);
+        
+          pushMatrix();
+          translate(width*0.25,height*0.25);
+          scale(0.5);
+  
+          displayTrack();
+          displayGrid();
+  
+          popMatrix();
+          //textAlign(LEFT,TOP);
+          textAlign(CENTER,CENTER);
+          textSize(scale * 0.1);
           fill(255);
-          text("HIT",width*0.5,height*0.1);
-          testHit--;
-        }//end if///////////////////////
-      }//end else
+          text("Map " + (map+1),width/2,height * 0.15);
+          
+          break;
+        }//end case
+        case 2:
+        {
+          background(50);
+        
+          displayTrack();
+          
+          allFire();
+          
+          for (int i = play1.size() - 1; i > -1; i--) 
+          {
+            Engine tempEng = play1.get(i);
+            tempEng.render();
+            tempEng.update();
+            
+          }//end for
+          
+          for (int i = play2.size() - 1; i > -1; i--) 
+          {
+            Engine tempEng = play2.get(i);
+            tempEng.render();
+            tempEng.update();
+            
+          }//end for
+          
+          break;
+        }//end case
+        case 3:
+        {
+          background(50);
+        
+          displayTrack();
+          
+
+          
+          for (int i = play1.size() - 1; i > -1; i--) 
+          {
+            Engine tempEng = play1.get(i);
+            tempEng.render();
+
+            
+          }//end for
+          
+          for (int i = play2.size() - 1; i > -1; i--) 
+          {
+            Engine tempEng = play2.get(i);
+            tempEng.render();
+ 
+            
+          }//end for
+          
+          break;
+        }//end case 3
+      }//end switch
+      
+
       break;
     }//end case 1
     

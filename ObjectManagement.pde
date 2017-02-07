@@ -20,7 +20,7 @@ void assemble(ArrayList<Engine> play, ArrayList<Track> railway, int[] select, in
         }//end case 0
         case 1:
         {
-          play.add(new MachineGun(railway,controlScheme,trak));
+          play.add(new Machinegun(railway,controlScheme,trak));
           
           break;
         }//end case 1
@@ -54,9 +54,9 @@ void setupVersus()
   }
   */
   
-  assemble(play1, greenTrack, select1, 1);
+  assemble(play1, greenTrack, select1, 2);
   //assemble(play2, greenTrack, select2, 2);
-  assemble(play2, redTrack, select2, 2);
+  assemble(play2, redTrack, select2, 1);
   
 }//end setVersus
 
@@ -82,9 +82,9 @@ void allFire()
       tempProj.update();
       tempProj.render();
       
-      for (int j = play2.size() - 1; j > -1; j--) 
+      for (int j = play1.size() - 1; j > -1; j--) 
       {
-          Engine tempEng = play2.get(j);
+          Engine tempEng = play1.get(j);
           if(tempProj.hit(tempEng))
           {
             fire1.remove(i);
@@ -108,7 +108,7 @@ void allFire()
       
       for (int k = play2.size() - 1; k > -1; k--) 
       {
-          Engine tempEng = play1.get(k);
+          Engine tempEng = play2.get(k);
           if(tempProj.hit(tempEng))
           {
             println("i = " + i);

@@ -17,50 +17,105 @@ void keyPressed()
     case 0:
     {
       
+      if(keyCode == 'e' || keyCode == 'E')
+      {
+        gameMode = 1;
+        versusStage = 0;
+        s1 = s2 = 0;
+        //mapSelect = true;
+        loadData(map);
+      }//end if
+      
+      
+      
       break;
     }//end case 0
     
     case 1:
     {
-      if(mapSelect)
+      
+      switch(versusStage)
       {
-        if(keyCode == 'a' || keyCode == 'A')
+        case 0:
         {
-          map = (map - 1 + 5) % 5;
-          loadData(map);
-        }//end if
-        else if(keyCode == 'd' || keyCode == 'D')
+          if(keyCode == 'a' || keyCode == 'A')
+          {
+            select1[s1] = (select1[s1] - 1 + weaponCount) % weaponCount;
+          }//end if
+          else if(keyCode == 'd' || keyCode == 'D')
+          {
+            select1[s1] = (select1[s1] + 1 + weaponCount) % weaponCount;
+          }//end else if
+          else if(keyCode == 'w' || keyCode == 'W')
+          {
+            s1 = (s1 - 1 + select1.length) % select1.length;
+          }//end else if
+          else if(keyCode == 's' || keyCode == 'S')
+          {
+            s1 = (s1 + 1 + select1.length) % select1.length;
+          }//end else if
+          
+          if(keyCode == LEFT)
+          {
+            select2[s2] = (select2[s2] - 1 + weaponCount) % weaponCount;
+          }//end if
+          else if(keyCode == RIGHT)
+          {
+            select2[s2] = (select2[s2] + 1 + weaponCount) % weaponCount;
+          }//end else if
+          else if(keyCode == UP)
+          {
+            s2 = (s2 - 1 + select2.length) % select2.length;
+          }//end else if
+          else if(keyCode == DOWN)
+          {
+            s2 = (s2 + 1 + select2.length) % select2.length;
+          }//end else if
+          
+          if(keyCode == 'e' || keyCode == 'E')
+          {
+            versusStage = 1;
+          }//end if
+          
+          break;
+        }//end switch
+        case 1:
         {
-          map = (map + 1) % 5;
-          loadData(map);
-        }//end else if
-        else if(keyCode == 'e' || keyCode == 'E')
+          if(keyCode == 'a' || keyCode == 'A' || keyCode == LEFT)
+          {
+            map = (map - 1 + 5) % 5;
+            loadData(map);
+          }//end if
+          else if(keyCode == 'd' || keyCode == 'D' || keyCode == RIGHT)
+          {
+            map = (map + 1) % 5;
+            loadData(map);
+          }//end else if
+          else if(keyCode == 'e' || keyCode == 'E')
+          {
+            //mapSelect = false;
+            versusStage = 2;
+            setupVersus();
+          }//end else if
+          
+          break;
+        }//end case 1
+        case 3:
         {
-          mapSelect = false;
-          setupVersus();
-        }//end else if
-      }//end if
-      else
-      {
-        
-      }//end else
+          if(keyCode == ' ')
+          {
+            versusStage = 2;
+            setupVersus();
+          }//end else if
+          
+          break;
+        }//end case 3
+      }//end switch
       
       if(keyCode == 'q' || keyCode == 'Q')
       {
         gameMode = 0;
       }//end if
-    
-      
-      
-      
-      
-      /*
-      if(keyCode == DOWN)
-      {
-        //play2 = new Engine(greenTrack);
-        play2 = new Engine(redTrack);
-      }//end if
-      */
       
       break;
     }//end case 1

@@ -71,7 +71,9 @@ class VersusButton extends Button
       setupVersus();
       */
       gameMode = 1;
-      mapSelect = true;
+      versusStage = 0;
+      s1 = s2 = 0;
+      //mapSelect = true;
       loadData(map);
     }
   }//end ifClicked

@@ -283,11 +283,11 @@ class GunCarriage extends Engine
   {
     
   }//end trigger
-}//end class MachineGun
+}//end class Machinegun
 
-class MachineGun extends GunCarriage
+class Machinegun extends GunCarriage
 {
-  MachineGun(ArrayList<Track> railway, int controlScheme,int trak)
+  Machinegun(ArrayList<Track> railway, int controlScheme,int trak)
   {
     super(railway,controlScheme,trak);
     fireRate = 5;
