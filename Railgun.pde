@@ -161,13 +161,22 @@ void draw()
   
           displayTrack();
           displayGrid();
-  
+          
           popMatrix();
           //textAlign(LEFT,TOP);
           textAlign(CENTER,CENTER);
           textSize(scale * 0.1);
           fill(255);
-          text("Map " + (map+1),width/2,height * 0.15);
+          
+          if(valid(greenTrack) && valid(redTrack))
+          {
+            text("Map " + (map+1),width/2,height * 0.15);
+          }//end if
+          else
+          {
+            text("Invalid Map",width/2,height * 0.15);
+          }//end else
+          
           
           break;
         }//end case

@@ -35,6 +35,18 @@ void assemble(ArrayList<Engine> play, ArrayList<Track> railway, int[] select, in
   }//end if
 }//end assemble
 
+
+boolean valid(ArrayList<Track> railway)
+{
+  if(railway.size() > 5)
+  {
+    return true;
+  }//end if
+  return false;
+}//end valid
+
+
+
 void collision()
 {
   for (int i = 0; i < play1.size(); i++) 

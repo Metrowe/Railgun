@@ -91,7 +91,7 @@ void keyPressed()
             map = (map + 1) % 5;
             loadData(map);
           }//end else if
-          else if(keyCode == 'e' || keyCode == 'E')
+          else if(keyCode == 'e' || keyCode == 'E' && valid(greenTrack) && valid(redTrack))
           {
             //mapSelect = false;
             versusStage = 2;
