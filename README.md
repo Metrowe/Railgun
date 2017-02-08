@@ -10,3 +10,5 @@ In the map maker after you select a map to modify you can easily create tracks o
 
 # Highlights
 * The inheritence and polymorphism for the engine classes allowed for chaining of different classes together to assemble the train.
+* Everything in file interaction was carefully pieced together to allow for simple and fluid user interaction.
+* Movement for the engines in update and jump required a lot of fine tuning and has resylted in very fine movement and rotation;
