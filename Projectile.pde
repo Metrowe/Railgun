@@ -50,7 +50,5 @@ class Projectile
      {
        return false;
      }//end else
-  }////end hit
-  
-  
+  }//end hit
 }//end class Projectile

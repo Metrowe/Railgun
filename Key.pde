@@ -93,7 +93,6 @@ void keyPressed()
           }//end else if
           else if(keyCode == 'e' || keyCode == 'E' && valid(greenTrack) && valid(redTrack))
           {
-            //mapSelect = false;
             versusStage = 2;
             setupVersus();
           }//end else if
@@ -153,24 +152,10 @@ void keyPressed()
       }//end if
       else
       {
-       
-        
         if(keyCode == 'r' || keyCode == 'R')
         {
-          //play2 = new Engine(greenTrack);
           g2r = !g2r;
         }//end if
-        
-        if(keyCode == UP)
-        {
-          //saveTrack(map);
-        }//end if
-        
-        if(keyCode == LEFT)
-        {
-          //redTrack.clear();
-        }//end if
-        /////////////////////////////////////
       }//end else
       
       if(keyCode == 'q' || keyCode == 'Q')

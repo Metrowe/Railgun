@@ -41,19 +41,15 @@ void displayHelp()
 }//end displayHelp
 
 void displayCarriage(String name, PVector pos,int[] select,int s)
-//void displayCarriage(String name, PVector pos,int[] select)
 {
   float space = height*0.15;
   strokeWeight(scale*0.002);
   textAlign(CENTER,CENTER);
-  //textAlign(LEFT,TOP);
   textSize(scale * 0.025);
   fill(255);
   
   text(name,pos.x+space/2,pos.y);
   
-  
-  //textAlign(CENTER,CENTER);
   for(int i = 0;i < select.length;i++)
   {
     fill(0);
@@ -127,21 +123,10 @@ void displayTemplate(ArrayList<Track> line)
     Track temp = line.get(line.size() - 1);
     PVector current = new PVector(temp.loc.x,temp.loc.y);
     PVector dest = checkBlock(new PVector(mouseX,mouseY));
-    
-    //println("curr = " + current.x + " " + current.y);
-      //println("dest = " + dest.x + " " + dest.y);
-    
-    
-    
+
     noStroke();
     fill(255,255,0);
-    
-    //rect(current.x*grid,current.y*grid,  grid,grid);
-    //rect(dest.x*grid,dest.y*grid,  grid,grid);
-    //println(current == dest);
-    //println(current.x != dest.x || current.y != dest.y);
-    
-    //while(current == dest)
+
     while(current.x != dest.x || current.y != dest.y)
     {
       
@@ -193,23 +178,6 @@ void displayConfirm()
     text("Save successful",0,0);
   }//end if
 }//end displayConfirm
-/*
-void displayHighlight()
-{
-  if(g2r)
-  {
-    stroke(0,255,0);
-    fill(0,255,0);
-  }//end if
-  else
-  {
-    stroke(255,0,0);
-    fill(255,0,0);
-  }//end else
-  
-  ellipse(mouseX,mouseY, width * 0.01,height * 0.01);
-}//end
-*/
 
 void displayTitle()
 {
@@ -255,12 +223,6 @@ PShape makeShape(color c)
 
 PVector checkBlock(PVector in)
 {
-  //PVector out = new PVector(round((in.x/grid)),round(in.y/grid));
   PVector out = new PVector(  int(in.x/grid), int(in.y/grid)  );
-  //out.x = in.x/grid;
-  //toggle((int)(mouseX/cw),(int)(mouseY/ch),true);
-  //out.x = round(in.x/grid);
-  //out.y = round(in.y/grid);
-  //println(int(in.x/grid));
   return out;
 }//end checkBlock

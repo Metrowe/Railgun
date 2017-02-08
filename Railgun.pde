@@ -2,8 +2,6 @@ void setup()
 {
   size(600,600);
   grid = width/40;
-  //xg = width/grid;
-  //yg = height/grid;
   scale = (width+height)/2;
   gameMode = 0;
   map = 0;
@@ -13,9 +11,6 @@ void setup()
   weaponCount = 3;
   brake = 0.97;
   thrust = scale * 0.005;
-  
-  test = new PVector();//
-  mouse = new PVector();//
   
   VB = new VersusButton( "Versus",new PVector(width*0.4,height*0.4),new PVector(width*0.2,height*0.05),color(255,0,0) );
   MB = new MapButton( "Map Maker",new PVector(width*0.4,height*0.55),new PVector(width*0.2,height*0.05),color(0,255,0) );
@@ -31,29 +26,15 @@ void setup()
   g2rB = new G2RButton( "",new PVector(0,height-grid*2),new PVector(grid*5,grid*2),color(100) );
   
   tableSetup();
-  
-  
-  
-  
-  
-  //ellipseMode(RADIUS);
 }//end setup
 
-//Engine play1;
-//Engine play2;
-//Machinegun play2;
-//Shotgun play2;
 ArrayList<Engine>play1 = new ArrayList<Engine>();
 ArrayList<Engine>play2 = new ArrayList<Engine>();
 
-//int[] select1 = new int[4];
-//int[] select2 = new int[3];
 int[] select1 = {0,1,0};
 int[] select2 = {2,0,2};
 
-//ArrayList<Planet> planets = new ArrayList<Planet>();
 Table table;
-
 
 ArrayList<Track> greenTrack = new ArrayList<Track>();
 ArrayList<Track> redTrack = new ArrayList<Track>();
@@ -63,7 +44,7 @@ ArrayList<Projectile> fire2 = new ArrayList<Projectile>();
 
 float timeDelta = 1.0f / 60.0f;
 int grid;
-//float xg,yg;
+
 PVector test;
 PVector mouse;
 
@@ -77,7 +58,6 @@ float thrust;
 
 int saveConfirm;
 
-int one = 1;///////////////////////////////////
 int s1, s2;
 
 boolean g2r;
@@ -102,26 +82,6 @@ G2RButton g2rB;
 
 void draw()
 {
-  //println( select2.length );
-  //println("Red Size = " + redTrack.size() );
-  //println("Gre Size = " + greenTrack.size() );
-  //if(frameCount % 1 == 0)
-  //{//////////////////////////////////////////////////////////
-  
-  //background(0);
-  /*
-  PVector tnull = null;
-  
-  if(tnull != null)
-  {
-    println("TRUE null");
-  }
-  else
-  {
-    println("FALSE null");
-  }
-  */
-  
   switch(gameMode)
   {
     case 0:
@@ -136,17 +96,11 @@ void draw()
     
     case 1:
     {
-      
       switch(versusStage)
       {
         case 0:
         {
           background(50);
-          
-          //displayCarriage(select1,s1);
-          //displayCarriage(select2,s2);
-          
-          
           
           displayCarriage("Player 1", new PVector(width*0.4-height*0.15,height*0.2),select1,s1);
           displayCarriage("Player 2", new PVector(width*0.6,height*0.2),select2,s2);
@@ -167,12 +121,10 @@ void draw()
           pushMatrix();
           translate(width*0.25,height*0.25);
           scale(0.5);
-  
           displayTrack();
           displayGrid();
-          
           popMatrix();
-          //textAlign(LEFT,TOP);
+          
           textAlign(CENTER,CENTER);
           textSize(scale * 0.1);
           fill(255);
@@ -191,7 +143,6 @@ void draw()
           fill(255);
           text("A/LEFT\n<-",width*0.32,   height * 0.8);
           text("D/RIGHT\n->",width*0.68,   height * 0.8);
-          
           text("Press e to continue",width*0.5,   height * 0.95);
           
           break;
@@ -209,7 +160,6 @@ void draw()
             Engine tempEng = play1.get(i);
             tempEng.render();
             tempEng.update();
-            
           }//end for
           
           for (int i = play2.size() - 1; i > -1; i--) 
@@ -217,10 +167,7 @@ void draw()
             Engine tempEng = play2.get(i);
             tempEng.render();
             tempEng.update();
-            
           }//end for
-          
-          
           
           if(help)
           {
@@ -233,8 +180,7 @@ void draw()
             fill(255);
             text("Press H - help",0,height  );
           }//end if
-          
-          
+
           if(defeatCheck(play1) || defeatCheck(play2))
           {
             versusStage = 3;
@@ -254,16 +200,12 @@ void draw()
           {
             Engine tempEng = play1.get(i);
             tempEng.render();
-            
-            
           }//end for
           
           for (int i = play2.size() - 1; i > -1; i--) 
           {
             Engine tempEng = play2.get(i);
             tempEng.render();
- 
-            
           }//end for
           
           textAlign(CENTER,CENTER);
@@ -281,8 +223,6 @@ void draw()
               tempEng.update();
               tempEng.trigger(random(0,TWO_PI),fire2);
             }//end for
-            
-            
           }//end if
           else
           {
@@ -306,8 +246,6 @@ void draw()
           break;
         }//end case 3
       }//end switch
-      
-
       break;
     }//end case 1
     
@@ -325,7 +263,6 @@ void draw()
         displayGrid();
 
         popMatrix();
-        //textAlign(LEFT,TOP);
         textAlign(CENTER,CENTER);
         textSize(scale * 0.1);
         fill(255);
@@ -358,24 +295,7 @@ void draw()
         EB.render();
         g2rB.render();
       }//end else
-      
       break;
-      
-      
     }//end case 2
-  
-  
   }//end switch
-  //ellipse(width/2,height/2,  20,20);
-  /*
-  mouse.set(mouseX,mouseY);
-  test = checkBlock(mouse);
-  
-  text(  test.x
-        +" + "
-        +test.y,
-         width*0.5,height*0.5);
-  */
-  
- // }//////////////////////////////////////////////////////////////////
 }//end draw

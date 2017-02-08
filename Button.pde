@@ -66,14 +66,9 @@ class VersusButton extends Button
   {
     if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
-      /*
-      gameMode = 1;
-      setupVersus();
-      */
       gameMode = 1;
       versusStage = 0;
       s1 = s2 = 0;
-      //mapSelect = true;
       loadData(map);
     }
   }//end ifClicked
@@ -116,24 +111,6 @@ class MapSelectButton extends Button
   }//end ifClicked
 }//end class VersusButton
 
-/*
-if(keyCode == 'a' || keyCode == 'A')
-      {
-        map = (map - 1 + 5) % 5;
-        loadData(map);
-      }//end if
-      else if(keyCode == 'd' || keyCode == 'D')
-      {
-        map = (map + 1) % 5;
-        loadData(map);
-      }//end else if
-      else if(keyCode == ENTER || keyCode == 'e' || keyCode == 'E')
-      {
-        mapSelect = false;
-        setupMap();
-      }//end else if
-*/
-
 class LeftMapButton extends Button 
 {
   
@@ -169,21 +146,6 @@ class RightMapButton extends Button
     }
   }//end ifClicked
 }//end class VersusButton
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class SaveButton extends Button 
 {
@@ -233,7 +195,7 @@ class ResetButton extends Button
   {
     if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
-      loadData(0);
+      loadData(map);
     }
   }//end ifClicked
 }//end class VersusButton
@@ -291,8 +253,6 @@ class G2RButton extends Button
       fill(c);
     }//end else
     ellipse(pos.x + size.x*0.75,pos.y + size.y*0.5,  size.y,size.y);
-    
-    
   }//end render
   
   void ifClicked()

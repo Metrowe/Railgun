@@ -50,21 +50,11 @@ class Engine
   
   void render()
   {
-    //fill(0,255,255);
-    //noFill();
-    //strokeWeight(1);
-    
-    //stroke(255,0,0);
-    //ellipse(pos.x,pos.y,  grid*1.1,grid*1.1);
-    
-    //stroke(0,0,255);
     noStroke();
     
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(thetav);
-    //rect(-grid/2,-grid/2, grid,grid);
-    
     if(health > 0)
     {
       shape(shape);
@@ -74,26 +64,7 @@ class Engine
       fill(0);
       rect(-grid/2,-grid/2, grid,grid);
     }//end else
-    
-    
-    //shape(shape);
-    
     popMatrix();
-    
-    
-    //////////////////////
-    /*
-    pushMatrix();
-    
-    translate(300,300);
-    rotate(thetav);
-    
-    noStroke();
-    fill(0,255,0);
-    rect(0,0,30,10);
-    popMatrix();
-    */
-    ////////////////////
   }//end render()
   
   void move()
@@ -150,47 +121,19 @@ class Engine
       Track got1 = railway.get(trak);
       Track got2 = railway.get((trak+1) % railway.size());
       
-     //println(  degrees(got1.theta)  );
-     //println(  degrees(got2.theta)  );
-      //println(  degrees(got1.theta - got2.theta)  );
-      
-      //println(  degrees( got1.theta)  );
-     //println(  degrees(       (got1.theta+got2.theta   )/2                          ) );
-      
-      println("");
-      
-      
-      //thetav = map(next,grid*0.49,0, got1.theta, (got1.theta+got2.theta)/2 );///////////////////////
-
       if( got1.theta - got2.theta < PI && got1.theta - got2.theta > -PI)
       {
         thetav = map(next,grid/2,0, got1.theta, (got1.theta+got2.theta)/2 );
       }//end if
       else
       {
-        println("n darn");
         thetav = map(next,grid/2,0, got1.theta % TWO_PI, (got1.theta+got2.theta-TWO_PI)/2 );
-        //thetav = map(next,grid/2,0, got1.theta, (got1.theta+got2.theta)/2      - TWO_PI*0.75        );
       }//end else
-      
-      
     }//end if
     else if(previous < grid/2)
     {
       Track got1 = railway.get(((trak-1)+railway.size()) % railway.size());
       Track got2 = railway.get(trak);
-
-
-      //println(  degrees(got1.theta)  );
-      //println(  degrees(got2.theta)  );
-      //println(  degrees(got1.theta - got2.theta)  );
-      
-      //println(  degrees((got1.theta+got2.theta)/2)  );
-      //println(  degrees( got2.theta  ));
-      
-      //println("");
-
-      //thetav = map(previous,0,grid/2, (got1.theta+got2.theta)/2, got2.theta);
 
       if( got1.theta - got2.theta < PI && got1.theta - got2.theta > -PI)
       {
@@ -198,15 +141,8 @@ class Engine
       }//end if
       else
       {
-        println("p darn");
        thetav = map(previous,0,grid/2, (got1.theta+got2.theta -TWO_PI)/2, got2.theta % TWO_PI);
-        //thetav = map(previous,0,grid/2, (got1.theta+got2.theta)/2                + TWO_PI*0.75                 , got2.theta);
-
       }//end else   
-      
-      
-      
-      
     }//end if
     else
     {
@@ -347,7 +283,6 @@ class Shotgun extends GunCarriage
     cooldown = 0;
     pellets = 6;
     range = radians(100);
-    //c = color(255,255,0);
     theme = color(255,255,0);
     
     shape = makeShape(theme);
@@ -377,7 +312,6 @@ class Sniper extends GunCarriage
     fireSpeed = scale * 0.015;
     damage = 51;
     cooldown = 0;
-    //c = color(180,0,180);
     theme = color(180,0,180);
     
     shape = makeShape(theme);
@@ -391,78 +325,3 @@ class Sniper extends GunCarriage
     cooldown = fireRate;
   }//end trigger
 }
-
-
-
-/*
-
-if(next < grid/2)
-    {
-      Track got1 = railway.get(trak);
-      Track got2 = railway.get((trak+1) % railway.size());
-      
-     println(  degrees(got1.theta)  );
-     println(  degrees(got2.theta)  );
-      //println(  degrees(got1.theta - got2.theta)  );
-      
-      println(  degrees( got1.theta)  );
-     println(  degrees(       (got1.theta+got2.theta   )/2                          ) );
-      
-      println("");
-      
-      
-      //thetav = map(next,grid*0.49,0, got1.theta, (got1.theta+got2.theta)/2 );///////////////////////
-
-      if( got1.theta - got2.theta < PI && got1.theta - got2.theta > -PI)
-      {
-        thetav = map(next,grid/2,0, got1.theta, (got1.theta+got2.theta)/2 );
-      }//end if
-      else
-      {
-        println("n darn");
-        thetav = map(next,grid/2,0, got1.theta-TWO_PI, (got1.theta+got2.theta-TWO_PI)/2 );
-        //thetav = map(next,grid/2,0, got1.theta, (got1.theta+got2.theta)/2      - TWO_PI*0.75        );
-      }//end else
-      
-      
-    }//end if
-    else if(previous < grid/2)
-    {
-      Track got1 = railway.get(((trak-1)+railway.size()) % railway.size());
-      Track got2 = railway.get(trak);
-
-
-      println(  degrees(got1.theta)  );
-      println(  degrees(got2.theta)  );
-      //println(  degrees(got1.theta - got2.theta)  );
-      
-      println(  degrees((got1.theta+got2.theta)/2)  );
-      println(  degrees( got2.theta  ));
-      
-      println("");
-
-      //thetav = map(previous,0,grid/2, (got1.theta+got2.theta)/2, got2.theta);
-
-      if( got1.theta - got2.theta < PI && got1.theta - got2.theta > -PI)
-      {
-        thetav = map(previous,0,grid/2, (got1.theta+got2.theta)/2, got2.theta);
-      }//end if
-      else
-      {
-        println("p darn");
-       thetav = map(previous,0,grid/2, (got1.theta+got2.theta -TWO_PI)/2, got2.theta);
-        //thetav = map(previous,0,grid/2, (got1.theta+got2.theta)/2                + TWO_PI*0.75                 , got2.theta);
-
-      }//end else   
-      
-      
-      
-      
-    }//end if
-    else
-    {
-      Track got = railway.get(trak);
-      thetav = got.theta;
-    }//end else
-    
-    */

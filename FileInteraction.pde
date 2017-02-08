@@ -1,7 +1,5 @@
 void loadData(int select)
 {
-  //Table t = loadTable("data/default.csv", "header");
-  
   Table t = new Table();
   
   switch(select)
@@ -32,10 +30,7 @@ void loadData(int select)
       break;
     }//end case 4
   }//end switch
-  
-  
-  //Table t = loadTable("data/new.csv", "header");
-  
+
   greenTrack.clear();
   redTrack.clear();
   
@@ -62,13 +57,6 @@ void loadData(int select)
   setDistance(redTrack);
     
 }//end loadData
-
-/*
-  Track(TableRow row)
-  {
-    loc = new PVector(row.getInt("1x"),row.getInt("1y"));
-  }//end Star 
-  */
 
 void tableSetup()
 {
@@ -98,15 +86,10 @@ void saveTrack(int select)
 {
   tableSetup();
   int i = 0;
-  
-  //for (int i = 0;i < redTrack.size();i++) 
   while(i < redTrack.size() || i < greenTrack.size())
   {
     PVector greenIn, redIn;
-    
-    println("i                 = " + i);
-    println("greenTrack.size() = " + greenTrack.size() );
-    
+
     if(i < greenTrack.size())
     {
       Track greenTemp = greenTrack.get(i);
@@ -116,8 +99,7 @@ void saveTrack(int select)
     {
       greenIn = new PVector(-1,-1);
     }
-   
-   
+
     if(i < redTrack.size())
     {
       Track redTemp = redTrack.get(i);
@@ -162,7 +144,4 @@ void saveTrack(int select)
       break;
     }//end case 4
   }//end switch
-  
-  
-  //aveTable(table, "data/default1.csv");
 }//end saveTrack

@@ -82,38 +82,9 @@ void mousePressed()
         LMB.ifClicked();
         RMB.ifClicked();
       }//end else
-      //PVector block = checkBlock(new PVector(mouseX,mouseY));
-        
-    //PVector block = new PVector();
-    //block = checkBlock(new PVector(mouseX,mouseY));
-    
-    //play2 = new Engine(redTrack);
-    
-    /*
-    if(redTrack.size() == 1)
-    {
-      play2 = new Engine(redTrack);
-    }//end if
-      */
-      
       break;
     }//end case 2
-  }//end switch
-  /*
-  PVector block = checkBlock(new PVector(mouseX,mouseY));
-  
-  //PVector block = new PVector();
-  //block = checkBlock(new PVector(mouseX,mouseY));
-  newTrack(redTrack, block);
-  //play2 = new Engine(redTrack);
-  setDistance(redTrack);
-  if(redTrack.size() == 1)
-  {
-    play2 = new Engine(redTrack);
-  }//end if
-  */
-  
-  
+  }//end switch 
 }//end mouseclicked
 
 

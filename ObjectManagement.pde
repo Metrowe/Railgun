@@ -13,7 +13,6 @@ void assemble(ArrayList<Engine> play, ArrayList<Track> railway, int[] select, in
       { 
         case 0:
         {
-          //Shotgun newEng2 = new Shotgun(railway,controlScheme,select.length-i);
           play.add(new Shotgun(railway,controlScheme,trak));
           
           break;
@@ -120,17 +119,8 @@ void setupVersus()
   
   play1.clear();
   play2.clear();
-  
-  /*
-  if(greenTrack.size() > 1)
-  {
-    play1 = new Engine(greenTrack,1,0);
-    //play2 = new Engine(greenTrack,1,1);
-  }
-  */
-  
+
   assemble(play1, greenTrack, select1, 2);
-  //assemble(play2, greenTrack, select2, 2);
   assemble(play2, redTrack, select2, 1);
   
 }//end setVersus
@@ -164,12 +154,6 @@ void allFire()
             Engine tempEng = play1.get(j);
             if(tempProj.hit(tempEng))
             {
-              if(tempEng.health <=0)
-              {
-                tempEng.shape = makeShape(0);
-              }//end if
-              
-              
               fire1.remove(i);
               break;
             }//end if
@@ -202,13 +186,6 @@ void allFire()
             break;
           }//end if
       }//end for
-      
-      /*
-      if(tempProj.hit(play1))
-      {
-        fire2.remove(i);
-      }//end if
-      */
     }//end else
   }//end for
 }//end allFire
