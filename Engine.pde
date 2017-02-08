@@ -307,13 +307,7 @@ class GunCarriage extends Engine
       
     cooldown--;
   }//end shoot
-  
-  /*
-  void trigger(float theta, ArrayList<Projectile> fire)
-  {
-    
-  }//end trigger
-  */
+
 }//end class Machinegun
 
 class Machinegun extends GunCarriage
@@ -322,8 +316,8 @@ class Machinegun extends GunCarriage
   {
     super(railway,controlScheme,trak);
     fireRate = 15;
-    fireSpeed = scale * 0.02;
-    damage = 9;
+    fireSpeed = scale * 0.008;
+    damage = 16;
     cooldown = 0;
     //c = color(0,0,255);
     theme = color(0,0,255);
@@ -348,8 +342,8 @@ class Shotgun extends GunCarriage
   {
     super(railway,controlScheme,trak);
     fireRate = 60;
-    fireSpeed = scale * 0.01;
-    damage = 3;
+    fireSpeed = scale * 0.005;
+    damage = 7;
     cooldown = 0;
     pellets = 6;
     range = radians(100);
@@ -380,7 +374,7 @@ class Sniper extends GunCarriage
   {
     super(railway,controlScheme,trak);
     fireRate = 90;
-    fireSpeed = scale * 0.03;
+    fireSpeed = scale * 0.015;
     damage = 51;
     cooldown = 0;
     //c = color(180,0,180);

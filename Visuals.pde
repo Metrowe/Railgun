@@ -21,6 +21,8 @@ void displayHelp()
   
   float spacing = grid * 1;
   
+  text("Destroy all your opponents weapon carriages\n or their engine(White Block) to win",0,height - (spacing * 16)  );
+  text(" ",0,height - (spacing * 14)  );
   text("Q - Quit to main menu",0,height - (spacing * 13)  );
   text("Player 1 (WASD)",0,height - (spacing * 12)  );
   text("w     - Move forward",0,height - (spacing * 11)  );

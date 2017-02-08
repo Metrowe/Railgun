@@ -146,8 +146,17 @@ void draw()
           //displayCarriage(select1,s1);
           //displayCarriage(select2,s2);
           
+          
+          
           displayCarriage("Player 1", new PVector(width*0.4-height*0.15,height*0.2),select1,s1);
           displayCarriage("Player 2", new PVector(width*0.6,height*0.2),select2,s2);
+          
+          textAlign(CENTER,CENTER);
+          textSize(scale * 0.04);
+          fill(255);
+          text("W\nA S D",width*0.32,   height * 0.775);
+          text("ARROW\nKEYS",width*0.68,   height * 0.775);
+          text("Press e to continue",width*0.5,   height * 0.95);
           
           break;
         }//end case
@@ -177,6 +186,13 @@ void draw()
             text("Invalid Map",width/2,height * 0.15);
           }//end else
           
+          textAlign(CENTER,CENTER);
+          textSize(scale * 0.04);
+          fill(255);
+          text("A/LEFT\n<-",width*0.32,   height * 0.8);
+          text("D/RIGHT\n->",width*0.68,   height * 0.8);
+          
+          text("Press e to continue",width*0.5,   height * 0.95);
           
           break;
         }//end case
@@ -281,6 +297,11 @@ void draw()
             }//end for
           }//end else
           
+          textAlign(CENTER,CENTER);
+          textSize(scale * 0.04);
+          fill(255);
+          text("Press Q to return to menu",width*0.5,   height * 0.90);
+          text("Press Space to restart",width*0.5,   height * 0.95);
           
           break;
         }//end case 3
