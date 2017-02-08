@@ -35,6 +35,47 @@ void assemble(ArrayList<Engine> play, ArrayList<Track> railway, int[] select, in
   }//end if
 }//end assemble
 
+void collision()
+{
+  for (int i = 0; i < play1.size(); i++) 
+  {
+    Engine tempEng1 = play1.get(i);
+    
+    for(int j = 0; j < play2.size(); j++)
+    {
+      Engine tempEng2 = play2.get(j);
+      if(tempEng1.pos.dist(tempEng2.pos) <= grid * 1.1)
+      {
+        tempEng1.health -= 20;
+        tempEng2.health -= 20;
+        reposition(play1);
+        reposition(play2);
+        return;
+      }//end if
+    }//end for
+    
+    //front.dist(player.pos) <= grid * 0.55
+    
+    
+  }//end for
+}//end collision
+
+void reposition(ArrayList<Engine> play)
+{
+  for (int i = 0; i < play.size(); i++) 
+  {
+    Engine tempEng = play.get(i);
+    
+    tempEng.trak = play.size() - i;
+    Track got = tempEng.railway.get(tempEng.trak);
+    tempEng.pos = new PVector((got.loc.x*grid)+grid/2,(got.loc.y*grid)+grid/2);
+    tempEng.speed = 0;
+    tempEng.accel = 0;
+    tempEng.next = got.link;
+    tempEng.previous = 0;
+  }//end for
+}//end reposition
+
 boolean defeatCheck(ArrayList<Engine> play)
 {
   Engine mainEng = play.get(0);

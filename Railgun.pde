@@ -178,7 +178,7 @@ void draw()
           displayTrack();
           
           allFire();
-          
+          collision();
           for (int i = play1.size() - 1; i > -1; i--) 
           {
             Engine tempEng = play1.get(i);
