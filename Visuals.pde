@@ -30,7 +30,7 @@ void displayHelp()
   text(" ",0,height - (spacing * 7)  );
   text("Player 2 (Arrow Keys)",0,height - (spacing * 6)  );
   text("UP        - Move forward",0,height - (spacing * 5)  );
-  text("DOWN  qeq- Move backward",0,height - (spacing * 4)  );
+  text("DOWN  - Move backward",0,height - (spacing * 4)  );
   text("LEFT     - Fire out left side",0,height - (spacing * 3)  );
   text("RIGHT   - Fire out right side",0,height - (spacing * 2)  );
   text(" ",0,height - (spacing * 1)  );
@@ -214,8 +214,42 @@ void displayTitle()
   textAlign(CENTER,CENTER);
   textSize(scale * 0.1);
   fill(255);
-  text("Railgun",width*0.5,height*0.3);
+  text("Railgun",width*0.5,height*0.2);
+  textSize(scale * 0.05);
+  text("An On-Rails Shooter",width*0.5,height*0.3);
 }//end displayTitle
+
+PShape makeShape(color c)
+{
+  PShape shape = createShape(GROUP);
+  noStroke();
+  PShape body = createShape(RECT, -grid/2, -grid/2, grid, grid);
+  body.setFill(c);
+  body.setStrokeWeight(0);
+  shape.addChild(body);
+  
+  PShape port = createShape(TRIANGLE, -grid/2,0,    -grid/2,-grid/2,   -grid/4,-grid/4);
+  port.setFill(0);
+  port.setStrokeWeight(0);
+  shape.addChild(port);
+  
+  port = createShape(TRIANGLE, -grid/2,0,    -grid/2,grid/2,   -grid/4,grid/4);
+  port.setFill(0);
+  port.setStrokeWeight(0);
+  shape.addChild(port);
+  
+  port = createShape(TRIANGLE, grid/2,0,    grid/2,-grid/2,   grid/4,-grid/4);
+  port.setFill(0);
+  port.setStrokeWeight(0);
+  shape.addChild(port);
+  
+  port = createShape(TRIANGLE, grid/2,0,    grid/2,grid/2,   grid/4,grid/4);
+  port.setFill(0);
+  port.setStrokeWeight(0);
+  shape.addChild(port);
+  
+  return shape;
+}
 
 PVector checkBlock(PVector in)
 {

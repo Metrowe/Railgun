@@ -43,6 +43,7 @@ class Projectile
      {
        testHit = 50;
        player.health -= damage;
+       
        return true;
      }
      else

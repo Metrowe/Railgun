@@ -3,6 +3,7 @@ class Engine
   int trak;
   int controlScheme;
   PVector pos;
+  PShape shape = createShape(GROUP);
   
   float speed;
   float accel;
@@ -30,6 +31,21 @@ class Engine
     next = got.link;
     previous = 0;
     theme = color(255);
+    
+    PShape front = createShape(ELLIPSE, 0, 0, grid, grid);
+    front.setFill(theme);
+    front.setStrokeWeight(0);
+    PShape back = createShape(RECT, -grid/2, 0, grid, grid/2);
+    back.setFill(theme);
+    back.setStrokeWeight(0);
+    PShape point = createShape(TRIANGLE, -grid/2,0,    grid/2,0,   0,-grid/2);
+    point.setFill(0);
+    point.setStrokeWeight(0);
+
+    shape.addChild(front);
+    shape.addChild(back);
+    shape.addChild(point);
+
   }//end Engine
   
   void render()
@@ -44,19 +60,23 @@ class Engine
     //stroke(0,0,255);
     noStroke();
     
+    pushMatrix();
+    translate(pos.x, pos.y);
+    rotate(thetav);
+    //rect(-grid/2,-grid/2, grid,grid);
+    
     if(health > 0)
     {
-      fill(theme);
+      shape(shape);
     }//end if
     else
     {
       fill(0);
+      rect(-grid/2,-grid/2, grid,grid);
     }//end else
     
-    pushMatrix();
-    translate(pos.x, pos.y);
-    rotate(thetav);
-    rect(-grid/2,-grid/2, grid,grid);
+    
+    //shape(shape);
     
     popMatrix();
     
@@ -252,6 +272,7 @@ class GunCarriage extends Engine
   GunCarriage(ArrayList<Track> railway, int controlScheme,int trak)
   {
     super(railway,controlScheme,trak);
+    
     health = 100;
   }//end FreeModeButton
   
@@ -306,6 +327,8 @@ class Machinegun extends GunCarriage
     cooldown = 0;
     //c = color(0,0,255);
     theme = color(0,0,255);
+    
+    shape = makeShape(theme);
   }//end FreeModeButton
   
   void trigger(float theta, ArrayList<Projectile> fire)
@@ -332,6 +355,8 @@ class Shotgun extends GunCarriage
     range = radians(100);
     //c = color(255,255,0);
     theme = color(255,255,0);
+    
+    shape = makeShape(theme);
   }//end FreeModeButton
   
   void trigger(float theta, ArrayList<Projectile> fire)
@@ -360,6 +385,8 @@ class Sniper extends GunCarriage
     cooldown = 0;
     //c = color(180,0,180);
     theme = color(180,0,180);
+    
+    shape = makeShape(theme);
   }//end FreeModeButton
   
   void trigger(float theta, ArrayList<Projectile> fire)

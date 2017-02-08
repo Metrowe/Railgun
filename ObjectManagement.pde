@@ -164,6 +164,12 @@ void allFire()
             Engine tempEng = play1.get(j);
             if(tempProj.hit(tempEng))
             {
+              if(tempEng.health <=0)
+              {
+                tempEng.shape = makeShape(0);
+              }//end if
+              
+              
               fire1.remove(i);
               break;
             }//end if
