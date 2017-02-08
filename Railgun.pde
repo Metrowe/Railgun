@@ -188,6 +188,11 @@ void draw()
             
           }//end for
           
+          if(defeatCheck(play1) || defeatCheck(play2))
+          {
+            versusStage = 3;
+          }//end if
+          
           break;
         }//end case
         case 3:
@@ -196,13 +201,13 @@ void draw()
         
           displayTrack();
           
-
+          allFire();
           
           for (int i = play1.size() - 1; i > -1; i--) 
           {
             Engine tempEng = play1.get(i);
             tempEng.render();
-
+            
             
           }//end for
           
@@ -213,6 +218,38 @@ void draw()
  
             
           }//end for
+          
+          textAlign(CENTER,CENTER);
+          textSize(scale * 0.1);
+          fill(255);
+          
+          if(defeatCheck(play1))
+          {
+            text("Player 2 Wins!",width*0.5,height*0.3);
+            
+            for (int i = play2.size() - 1; i > -1; i--) 
+            {
+              Engine tempEng = play1.get(i);
+              tempEng.accel = 10;
+              tempEng.update();
+              tempEng.trigger(random(0,TWO_PI),fire2);
+            }//end for
+            
+            
+          }//end if
+          else
+          {
+            text("Player 1 Wins!",width*0.5,height*0.3);
+            
+            for (int i = play1.size() - 1; i > -1; i--) 
+            {
+              Engine tempEng = play1.get(i);
+              tempEng.accel = 5;
+              tempEng.update();
+              tempEng.trigger(random(0,TWO_PI),fire1);
+            }//end for
+          }//end else
+          
           
           break;
         }//end case 3

@@ -35,13 +35,14 @@ class Engine
   void render()
   {
     //fill(0,255,255);
-    noFill();
-    strokeWeight(1);
+    //noFill();
+    //strokeWeight(1);
     
-    stroke(255,0,0);
-    ellipse(pos.x,pos.y,  grid*1.1,grid*1.1);
+    //stroke(255,0,0);
+    //ellipse(pos.x,pos.y,  grid*1.1,grid*1.1);
     
-    stroke(0,0,255);
+    //stroke(0,0,255);
+    noStroke();
     
     if(health > 0)
     {
@@ -51,6 +52,7 @@ class Engine
     {
       fill(0);
     }//end else
+    
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(thetav);
@@ -60,6 +62,7 @@ class Engine
     
     
     //////////////////////
+    /*
     pushMatrix();
     
     translate(300,300);
@@ -69,6 +72,7 @@ class Engine
     fill(0,255,0);
     rect(0,0,30,10);
     popMatrix();
+    */
     ////////////////////
   }//end render()
   
@@ -102,6 +106,11 @@ class Engine
   {
     
   }//end shoot
+  
+  void trigger(float theta, ArrayList<Projectile> fire)
+  {
+    
+  }//end trigger
   
   void update()
   {
@@ -277,10 +286,12 @@ class GunCarriage extends Engine
     cooldown--;
   }//end shoot
   
+  /*
   void trigger(float theta, ArrayList<Projectile> fire)
   {
     
   }//end trigger
+  */
 }//end class Machinegun
 
 class Machinegun extends GunCarriage

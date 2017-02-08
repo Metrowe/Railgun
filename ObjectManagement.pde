@@ -35,6 +35,28 @@ void assemble(ArrayList<Engine> play, ArrayList<Track> railway, int[] select, in
   }//end if
 }//end assemble
 
+boolean defeatCheck(ArrayList<Engine> play)
+{
+  Engine mainEng = play.get(0);
+  if(mainEng.health <= 0)
+  {
+    return true;
+  }//end if
+  
+  for (int i = 1; i < play.size(); i++) 
+  {
+    Engine tempEng = play.get(i);
+    
+    if(tempEng.health > 0)
+    {
+      return false;
+    }//end if 
+  }//end for
+  
+  return true;
+          
+}//end defeatCheck
+
 void setupVersus()
 {
   
@@ -82,15 +104,18 @@ void allFire()
       tempProj.update();
       tempProj.render();
       
-      for (int j = play1.size() - 1; j > -1; j--) 
+      if(!defeatCheck(play1) && !defeatCheck(play2))
       {
-          Engine tempEng = play1.get(j);
-          if(tempProj.hit(tempEng))
-          {
-            fire1.remove(i);
-            break;
-          }//end if
-      }//end for
+        for (int j = play1.size() - 1; j > -1; j--) 
+        {
+            Engine tempEng = play1.get(j);
+            if(tempProj.hit(tempEng))
+            {
+              fire1.remove(i);
+              break;
+            }//end if
+        }//end for
+      }//end else
     }//end else
   }//end for
   
