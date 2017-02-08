@@ -26,7 +26,7 @@ class Engine
     pos = new PVector((got.loc.x*grid)+grid/2,(got.loc.y*grid)+grid/2);
     speed = 0;
     accel = 0;
-    health = 100;
+    health = 200;
     next = got.link;
     previous = 0;
     theme = color(255);
@@ -82,22 +82,22 @@ class Engine
     {
       if (checkKey(UP))
       {
-        accel = 2;      
+        accel = thrust;      
       }//end if
       else if (checkKey(DOWN))
       {
-        accel = -2;      
+        accel = -thrust;      
       }//end else if
     }//end if
     else //if (controlScheme == 2)
     {
       if (checkKey('w'))
       {
-        accel = 2;      
+        accel = thrust;      
       }//end if
       else if (checkKey('s'))
       {
-        accel = -2;      
+        accel = -thrust;      
       }//end else if
     }//end else
   }//end move
@@ -195,7 +195,7 @@ class Engine
     }//end else
 
     accel = 0;
-    speed *= 0.99;
+    speed *= brake;
     
     float val = 0.01;
     if(speed > -val && speed < val)
@@ -245,13 +245,14 @@ class Engine
 class GunCarriage extends Engine 
 {
   int fireRate;
-  int fireSpeed;
+  float fireSpeed;
   int damage;
   int cooldown;
   
   GunCarriage(ArrayList<Track> railway, int controlScheme,int trak)
   {
     super(railway,controlScheme,trak);
+    health = 100;
   }//end FreeModeButton
   
   void shoot()
@@ -299,9 +300,9 @@ class Machinegun extends GunCarriage
   Machinegun(ArrayList<Track> railway, int controlScheme,int trak)
   {
     super(railway,controlScheme,trak);
-    fireRate = 5;
-    fireSpeed = 6;
-    damage = 10;
+    fireRate = 15;
+    fireSpeed = scale * 0.02;
+    damage = 9;
     cooldown = 0;
     //c = color(0,0,255);
     theme = color(0,0,255);
@@ -324,7 +325,7 @@ class Shotgun extends GunCarriage
   {
     super(railway,controlScheme,trak);
     fireRate = 60;
-    fireSpeed = 3;
+    fireSpeed = scale * 0.01;
     damage = 3;
     cooldown = 0;
     pellets = 6;
@@ -353,9 +354,9 @@ class Sniper extends GunCarriage
   Sniper(ArrayList<Track> railway, int controlScheme,int trak)
   {
     super(railway,controlScheme,trak);
-    fireRate = 180;
-    fireSpeed = 10;
-    damage = 101;
+    fireRate = 90;
+    fireSpeed = scale * 0.03;
+    damage = 51;
     cooldown = 0;
     //c = color(180,0,180);
     theme = color(180,0,180);

@@ -8,7 +8,11 @@ void setup()
   gameMode = 0;
   map = 0;
   
+  help = false;
+  
   weaponCount = 3;
+  brake = 0.97;
+  thrust = scale * 0.005;
   
   test = new PVector();//
   mouse = new PVector();//
@@ -69,6 +73,7 @@ int gameMode;
 int versusStage;
 int map;
 float scale;
+float thrust;
 
 int saveConfirm;
 
@@ -77,8 +82,10 @@ int s1, s2;
 
 boolean g2r;
 boolean mapSelect;
+boolean help;
 
 int weaponCount;
+float brake;
 
 VersusButton VB;
 MapButton MB;
@@ -188,6 +195,21 @@ void draw()
             
           }//end for
           
+          
+          
+          if(help)
+          {
+            displayHelp();
+          }//end if
+          else
+          {
+            textAlign(LEFT,BOTTOM);
+            textSize(scale * 0.025);
+            fill(255);
+            text("Press H - help",0,height  );
+          }//end if
+          
+          
           if(defeatCheck(play1) || defeatCheck(play2))
           {
             versusStage = 3;
@@ -230,7 +252,7 @@ void draw()
             for (int i = play2.size() - 1; i > -1; i--) 
             {
               Engine tempEng = play1.get(i);
-              tempEng.accel = 10;
+              tempEng.accel = thrust * 5;
               tempEng.update();
               tempEng.trigger(random(0,TWO_PI),fire2);
             }//end for
@@ -244,7 +266,7 @@ void draw()
             for (int i = play1.size() - 1; i > -1; i--) 
             {
               Engine tempEng = play1.get(i);
-              tempEng.accel = 5;
+              tempEng.accel = thrust * 5;
               tempEng.update();
               tempEng.trigger(random(0,TWO_PI),fire1);
             }//end for

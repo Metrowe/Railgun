@@ -146,7 +146,7 @@ class LeftMapButton extends Button
   {
     if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
-      map = (map - 1 + 5) % 5;
+      map = (map - 1 + 3) % 3;
       loadData(map);
     }
   }//end ifClicked
@@ -164,7 +164,7 @@ class RightMapButton extends Button
   {
     if(mouseX > pos.x && mouseX < pos.x+size.x && mouseY > pos.y && mouseY < pos.y+size.y)
     {
-      map = (map + 1) % 5;
+      map = (map + 1) % 3;
       loadData(map);
     }
   }//end ifClicked

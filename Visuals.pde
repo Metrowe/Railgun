@@ -13,6 +13,31 @@ void displayGrid()
   strokeWeight(2);
 }//end displayGrid
 
+void displayHelp()
+{
+  textAlign(LEFT,BOTTOM);
+  textSize(scale * 0.025);
+  fill(255);
+  
+  float spacing = grid * 1;
+  
+  text("Q - Quit to main menu",0,height - (spacing * 13)  );
+  text("Player 1 (WASD)",0,height - (spacing * 12)  );
+  text("w     - Move forward",0,height - (spacing * 11)  );
+  text("s      - Move backward",0,height - (spacing * 10)  );
+  text("a      - Fire out left side",0,height - (spacing * 9)  );
+  text("d      - Fire out right side",0,height - (spacing * 8)  );
+  text(" ",0,height - (spacing * 7)  );
+  text("Player 2 (Arrow Keys)",0,height - (spacing * 6)  );
+  text("UP        - Move forward",0,height - (spacing * 5)  );
+  text("DOWN  qeq- Move backward",0,height - (spacing * 4)  );
+  text("LEFT     - Fire out left side",0,height - (spacing * 3)  );
+  text("RIGHT   - Fire out right side",0,height - (spacing * 2)  );
+  text(" ",0,height - (spacing * 1)  );
+  text("h - Toggle help",0,height - (spacing * 0)  );
+  
+}//end displayHelp
+
 void displayCarriage(String name, PVector pos,int[] select,int s)
 //void displayCarriage(String name, PVector pos,int[] select)
 {
@@ -79,7 +104,7 @@ void displayTrack()
   {
     Track tempTrack = redTrack.get(i);
 
-    tempTrack.render(  color(200,0,0)  );
+    tempTrack.render(  color(150,0,0)  );
   }//end for
   
   for (int i = greenTrack.size() - 1; i > -1; i--) 
@@ -87,7 +112,7 @@ void displayTrack()
     Track tempTrack = greenTrack.get(i);
 
     //tempTrack.render(  color(0,255,0)  );
-    tempTrack.render(  color(0,200,0)  );
+    tempTrack.render(  color(0,150,0)  );
   }//end for
 }//end smallRock
 

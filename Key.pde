@@ -100,6 +100,17 @@ void keyPressed()
           
           break;
         }//end case 1
+        
+        case 2:
+        {
+          if(keyCode == 'h' || keyCode == 'H')
+          {
+            help = !help;
+          }//end if
+          
+          break;
+        }//end case 1
+        
         case 3:
         {
           if(keyCode == ' ')
@@ -142,13 +153,7 @@ void keyPressed()
       }//end if
       else
       {
-        
-        /////////////////////////////
-        if(keyCode == 'q' || keyCode == 'Q')
-        {
-          //play2 = new Engine(greenTrack);
-          gameMode = 0;
-        }//end if
+       
         
         if(keyCode == 'r' || keyCode == 'R')
         {
@@ -167,6 +172,11 @@ void keyPressed()
         }//end if
         /////////////////////////////////////
       }//end else
+      
+      if(keyCode == 'q' || keyCode == 'Q')
+      {
+        gameMode = 0;
+      }//end if
       
       break;
     }//end case 2
